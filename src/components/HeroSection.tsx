@@ -38,6 +38,24 @@ export default function HeroSection() {
       {/* Centered Monumental Editorial Content */}
       <div className="spyker-hero-center-container">
         <div className="spyker-hero-content-wrapper">
+          {/* Brand Logo Anchor / Hero Placeholder for Preloader Transition */}
+          <div id="hero-logo-placeholder" className="hero-logo-placeholder">
+            <Image
+              src="/images/brand/milind-logo-white-2x.png"
+              alt="Milind Travels Mumbai"
+              width={260}
+              height={90}
+              priority
+              sizes="260px"
+              style={{
+                objectFit: "contain",
+                width: "auto",
+                height: "clamp(52px, 7vw, 76px)",
+                filter: "drop-shadow(0 4px 24px rgba(199, 166, 120, 0.45)) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.8))",
+              }}
+            />
+          </div>
+
           {/* Monumental Ultra-Bold Headline */}
           <h1 className="spyker-headline">
             <span className="headline-block">UNCOMPROMISING</span>
@@ -219,6 +237,19 @@ export default function HeroSection() {
         .spyker-eyebrow-gold {
           color: var(--color-champagne-light);
           font-weight: 700;
+        }
+
+        .hero-logo-placeholder {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: clamp(1.25rem, 2.5vw, 1.85rem);
+          will-change: transform, opacity;
+          transition: opacity 0.3s ease;
+        }
+
+        :global(html.preloader-active) .hero-logo-placeholder {
+          opacity: 0 !important;
         }
 
         .spyker-headline {
