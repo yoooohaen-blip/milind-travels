@@ -81,34 +81,36 @@ export default function InteractiveHeritageTimeline() {
   const [nodeOffsets, setNodeOffsets] = useState<{ [year: string]: number }>({});
   const milestoneRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const trackContainerRef = useRef<HTMLDivElement | null>(null);
 
   // Synchronized scroll tracking and dynamic car position calculation
   useEffect(() => {
     const handleScrollAndMeasure = () => {
-      if (!containerRef.current) return;
+      const trackContainer = trackContainerRef.current;
+      if (!trackContainer) return;
 
-      const containerRect = containerRef.current.getBoundingClientRect();
+      const trackContainerRect = trackContainer.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // 1. Measure all milestone rows to get their vertical centers relative to container top
+      // 1. Measure all milestone rows to get their vertical centers relative to track container top
       const offsets: { [year: string]: number } = {};
       MILESTONES.forEach((m) => {
         const el = milestoneRefs.current[m.year];
         if (el) {
           const r = el.getBoundingClientRect();
-          offsets[m.year] = (r.top + r.height / 2) - containerRect.top;
+          offsets[m.year] = (r.top + r.height / 2) - trackContainerRect.top;
         }
       });
       setNodeOffsets(offsets);
 
-      const firstY = offsets[MILESTONES[0].year] ?? 100;
-      const lastY = offsets[MILESTONES[MILESTONES.length - 1].year] ?? (containerRect.height - 100);
+      const firstY = offsets[MILESTONES[0].year] ?? 0;
+      const lastY = offsets[MILESTONES[MILESTONES.length - 1].year] ?? trackContainerRect.height;
       const span = Math.max(lastY - firstY, 1);
       setTrackBounds({ top: firstY, height: span });
 
       // 2. Viewport focal line: where the user's attention is focused (~48% of screen)
       const focalY = windowHeight * 0.48;
-      const currentFocalY = focalY - containerRect.top;
+      const currentFocalY = focalY - trackContainerRect.top;
 
       // 3. Clamped car position along the vertical spine
       const targetCarY = Math.min(Math.max(currentFocalY, firstY), lastY);
@@ -186,7 +188,7 @@ export default function InteractiveHeritageTimeline() {
               gap: "1rem",
             }}
           >
-            {/* Left: Active Era Display & Goals Counter */}
+            {/* Left: Active Era Display & Milestones Counter */}
             <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", flexWrap: "wrap" }}>
               <span
                 style={{
@@ -217,7 +219,7 @@ export default function InteractiveHeritageTimeline() {
                 </span>
               </div>
 
-              {/* Real-time Goals Hit Pill */}
+              {/* Real-time Milestones Reached Pill */}
               <div
                 style={{
                   display: "inline-flex",
@@ -233,7 +235,7 @@ export default function InteractiveHeritageTimeline() {
                 }}
               >
                 <CheckCircle2 size={13} strokeWidth={2.5} />
-                <span>{hitCount}/5 Goals Hit</span>
+                <span>{hitCount}/5 Milestones Reached</span>
               </div>
             </div>
 
@@ -347,6 +349,7 @@ export default function InteractiveHeritageTimeline() {
         />
 
         <div
+          ref={trackContainerRef}
           style={{
             position: "relative",
             maxWidth: "1140px",
@@ -442,7 +445,7 @@ export default function InteractiveHeritageTimeline() {
                     }}
                     className="timeline-center-node"
                   >
-                    {/* Goal Hit Checkmark Badge */}
+                    {/* Milestone Checkmark Badge */}
                     {isHit && (
                       <div
                         style={{
@@ -461,7 +464,7 @@ export default function InteractiveHeritageTimeline() {
                           boxShadow: "0 0 12px rgba(199, 166, 120, 0.8)",
                           zIndex: 12,
                         }}
-                        title="Milestone Goal Achieved"
+                        title="Milestone Achieved"
                       >
                         <CheckCircle2 size={13} strokeWidth={2.5} />
                       </div>
@@ -475,7 +478,7 @@ export default function InteractiveHeritageTimeline() {
                           inset: "-14px",
                           borderRadius: "50%",
                           border: "2px solid var(--color-champagne)",
-                          animation: "goalPulse 1s infinite ease-out",
+                          animation: "milestonePulse 1s infinite ease-out",
                           pointerEvents: "none",
                         }}
                       />
@@ -503,7 +506,7 @@ export default function InteractiveHeritageTimeline() {
                         marginTop: "2px",
                       }}
                     >
-                      Goal 0{idx + 1}
+                      Milestone 0{idx + 1}
                     </span>
                   </div>
 
@@ -511,8 +514,8 @@ export default function InteractiveHeritageTimeline() {
                   <div
                     style={{
                       position: "absolute",
-                      left: isEven ? "calc(50% - 50px)" : "50%",
-                      width: "50px",
+                      left: isEven ? "calc(50% - 60px)" : "50%",
+                      width: "60px",
                       height: isHit ? "3px" : "2px",
                       backgroundColor: isHit ? "var(--color-champagne)" : "rgba(199, 166, 120, 0.3)",
                       boxShadow: isHit ? "0 0 10px rgba(199, 166, 120, 0.7)" : "none",
@@ -615,9 +618,9 @@ export default function InteractiveHeritageTimeline() {
                       </div>
                     </div>
 
-                    {/* Card Content (Reduced, Crisp Copy with Goal Status) */}
+                    {/* Card Content (Reduced, Crisp Copy with Milestone Status) */}
                     <div style={{ padding: "1.4rem 1.6rem" }}>
-                      {/* Goal Achievement Status (Clean text, no pill container) */}
+                      {/* Milestone Achievement Status (Clean text, no pill container) */}
                       <div
                         style={{
                           display: "flex",
@@ -635,12 +638,12 @@ export default function InteractiveHeritageTimeline() {
                         {isHit ? (
                           <>
                             <CheckCircle2 size={13} strokeWidth={2.5} style={{ color: "#10B981" }} />
-                            <span>Goal 0{idx + 1} Achieved & Operational</span>
+                            <span>Milestone 0{idx + 1} Achieved & Operational</span>
                           </>
                         ) : (
                           <>
                             <Clock size={13} style={{ color: "#81909A" }} />
-                            <span>Target Goal 0{idx + 1} • Approaching</span>
+                            <span>Target Milestone 0{idx + 1} • Approaching</span>
                           </>
                         )}
                       </div>
@@ -721,7 +724,7 @@ export default function InteractiveHeritageTimeline() {
 
       {/* Responsive Styles and Keyframe Animations */}
       <style jsx>{`
-        @keyframes goalPulse {
+        @keyframes milestonePulse {
           0% {
             transform: scale(0.95);
             opacity: 1;
@@ -751,7 +754,7 @@ export default function InteractiveHeritageTimeline() {
           }
           :global(.timeline-connector-line) {
             left: 28px !important;
-            width: 32px !important;
+            width: 40px !important;
           }
           :global(.timeline-card-box) {
             width: calc(100% - 68px) !important;
