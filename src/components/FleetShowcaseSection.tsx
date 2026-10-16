@@ -1,129 +1,352 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FLEET_TIERS, CONTACT_INFO } from "@/data/content";
-import {
-  Users,
-  Briefcase,
-  CheckCircle2,
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-  PhoneCall,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+const SHORT_LABELS: Record<string, string> = {
+  "executive-sedan": "Executive Sedans",
+  "premium-mpv": "Premium MPVs",
+};
+
+const getShortLabel = (id: string, category: string) =>
+  SHORT_LABELS[id] ?? category.replace(/\s*\(.*\)\s*/, "").split("&")[0].trim();
 
 export default function FleetShowcaseSection() {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-  const [scrollProgress, setScrollProgress] = useState<number>(0);
-  const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
-  const [canScrollRight, setCanScrollRight] = useState<boolean>(true);
-  const [activeTierId, setActiveTierId] = useState<string>(FLEET_TIERS[0].id);
+  const stageRef = useRef<HTMLDivElement | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [segmentProgress, setSegmentProgress] = useState<number>(0);
+  const total = FLEET_TIERS.length;
 
-  // Monitor scroll progress and boundaries
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    const maxScroll = scrollWidth - clientWidth;
-    
-    if (maxScroll > 0) {
-      setScrollProgress(scrollLeft / maxScroll);
-      setCanScrollLeft(scrollLeft > 20);
-      setCanScrollRight(scrollLeft < maxScroll - 20);
-    }
-
-    // Determine which card is currently in view
-    const cardWidth = 400; // estimated card + gap
-    const index = Math.min(
-      Math.max(Math.round(scrollLeft / cardWidth), 0),
-      FLEET_TIERS.length - 1
-    );
-    setActiveTierId(FLEET_TIERS[index].id);
-  };
-
+  // Scroll-driven tier switching: the stage is (total × 100vh) tall and the
+  // inner panel is sticky, so each viewport-height of scroll advances one tier.
   useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    handleScroll();
-    el.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
-    return () => {
-      el.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+    const onScroll = () => {
+      const stage = stageRef.current;
+      if (!stage) return;
+      const rect = stage.getBoundingClientRect();
+      const scrollable = rect.height - window.innerHeight;
+      if (scrollable <= 0) return;
+
+      const progress = Math.min(Math.max(-rect.top / scrollable, 0), 0.9999);
+      const raw = progress * total;
+      setActiveIndex(Math.floor(raw));
+      setSegmentProgress(raw - Math.floor(raw));
     };
-  }, []);
 
-  const scrollByAmount = (direction: "left" | "right") => {
-    if (!scrollRef.current) return;
-    const cardWidth = 390;
-    scrollRef.current.scrollBy({
-      left: direction === "left" ? -cardWidth : cardWidth,
-      behavior: "smooth",
-    });
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [total]);
+
+  const scrollToTier = (index: number) => {
+    const stage = stageRef.current;
+    if (!stage) return;
+    const stageTop = stage.getBoundingClientRect().top + window.scrollY;
+    const scrollable = stage.offsetHeight - window.innerHeight;
+    const target = stageTop + (scrollable * (index + 0.05)) / total;
+    window.scrollTo({ top: target, behavior: "smooth" });
   };
 
-  const scrollToCard = (index: number) => {
-    if (!scrollRef.current) return;
-    const cardWidth = 390;
-    scrollRef.current.scrollTo({
-      left: index * cardWidth,
-      behavior: "smooth",
-    });
-  };
+  const tier = FLEET_TIERS[activeIndex];
 
   return (
     <section
       id="fleet-tiers-showcase"
-      className="section-py surface-dark"
-      style={{ position: "relative", overflow: "hidden", borderBottom: "1px solid rgba(255, 255, 255, 0.08)" }}
+      className="surface-dark"
+      style={{ position: "relative", borderBottom: "1px solid rgba(255, 255, 255, 0.08)" }}
     >
-      {/* Background Ambient Glows */}
-      <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          right: "-5%",
-          width: "480px",
-          height: "480px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(199, 166, 120, 0.09) 0%, transparent 70%)",
-          filter: "blur(60px)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "10%",
-          left: "-5%",
-          width: "500px",
-          height: "500px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(199, 166, 120, 0.06) 0%, transparent 70%)",
-          filter: "blur(70px)",
-          pointerEvents: "none",
-        }}
-      />
+      {/* Intro */}
+      <div className="site-container" style={{ paddingTop: "clamp(4rem, 8vw, 6rem)", paddingBottom: "1rem" }}>
+        <div style={{ maxWidth: "720px" }}>
+          <span
+            style={{
+              display: "block",
+              fontSize: "0.78rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.16em",
+              color: "var(--color-champagne)",
+              marginBottom: "0.75rem",
+            }}
+          >
+            Mumbai Commercial Fleet
+          </span>
+          <h2 className="text-section-title" style={{ color: "#FFFFFF", marginBottom: "0.75rem", lineHeight: 1.2 }}>
+            Four Corporate Fleet Tiers.
+          </h2>
+          <p className="text-lead" style={{ color: "#C8D3DB", marginBottom: 0 }}>
+            Scroll to move through each tier — from executive sedans to daily commute cabs.
+          </p>
+        </div>
+      </div>
 
-      <div className="site-container" style={{ position: "relative", zIndex: 2 }}>
-        {/* Section Header with Navigation Controls */}
+      {/* =========================== DESKTOP: sticky split-screen =========================== */}
+      <div
+        ref={stageRef}
+        className="fleet-split-stage"
+        style={{ position: "relative", height: `${total * 100}vh` }}
+      >
         <div
+          className="fleet-split-sticky"
           style={{
+            position: "sticky",
+            top: "var(--navbar-offset, 76px)",
+            height: "calc(100vh - var(--navbar-offset, 76px))",
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-            flexWrap: "wrap",
-            gap: "1.5rem",
-            marginBottom: "2.5rem",
+            alignItems: "center",
           }}
         >
-          <div style={{ maxWidth: "720px" }}>
+          <div
+            className="site-container"
+            style={{
+              width: "100%",
+              display: "grid",
+              gridTemplateColumns: "1.05fr 1fr",
+              gap: "clamp(2.5rem, 5vw, 5rem)",
+              alignItems: "center",
+            }}
+          >
+            {/* Left: crossfading image stack */}
+            <div
+              style={{
+                position: "relative",
+                height: "min(72vh, 620px)",
+                borderRadius: "24px",
+                overflow: "hidden",
+                boxShadow: "0 30px 70px rgba(0, 0, 0, 0.45)",
+                backgroundColor: "#0D1721",
+              }}
+            >
+              {FLEET_TIERS.map((t, idx) => (
+                <div
+                  key={t.id}
+                  aria-hidden={idx !== activeIndex}
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    opacity: idx === activeIndex ? 1 : 0,
+                    transform: idx === activeIndex ? "scale(1)" : "scale(1.06)",
+                    transition: "opacity 700ms ease, transform 1200ms cubic-bezier(0.16, 1, 0.3, 1)",
+                  }}
+                >
+                  <Image
+                    src={t.imageSrc}
+                    alt={t.imageAlt}
+                    fill
+                    sizes="(max-width: 860px) 100vw, 50vw"
+                    style={{ objectFit: "cover", objectPosition: "center 45%" }}
+                    priority={idx === 0}
+                  />
+                </div>
+              ))}
+
+              {/* Soft bottom scrim for the counter */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(180deg, rgba(8,21,33,0) 55%, rgba(8,21,33,0.75) 100%)",
+                  pointerEvents: "none",
+                }}
+              />
+
+              {/* Plain-text counter (no pill) */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: "1.75rem",
+                  bottom: "1.5rem",
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: "0.5rem",
+                  color: "#FFFFFF",
+                  fontFamily: "var(--font-heading)",
+                }}
+              >
+                <span style={{ fontSize: "2.2rem", fontWeight: 800, lineHeight: 1 }}>0{activeIndex + 1}</span>
+                <span style={{ fontSize: "0.95rem", fontWeight: 600, color: "rgba(255,255,255,0.55)" }}>
+                  / 0{total}
+                </span>
+              </div>
+            </div>
+
+            {/* Right: tabs + text */}
+            <div>
+              {/* Text tabs with underline — no pill containers */}
+              <div
+                role="tablist"
+                aria-label="Fleet tiers"
+                style={{
+                  display: "flex",
+                  gap: "1.75rem",
+                  borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
+                  marginBottom: "2.25rem",
+                  flexWrap: "wrap",
+                }}
+              >
+                {FLEET_TIERS.map((t, idx) => {
+                  const isActive = idx === activeIndex;
+                  return (
+                    <button
+                      key={t.id}
+                      id={`fleet-tab-${t.id}`}
+                      role="tab"
+                      aria-selected={isActive}
+                      type="button"
+                      onClick={() => scrollToTier(idx)}
+                      style={{
+                        position: "relative",
+                        background: "none",
+                        border: "none",
+                        padding: "0 0 0.85rem 0",
+                        cursor: "pointer",
+                        fontSize: "0.74rem",
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.14em",
+                        color: isActive ? "#FFFFFF" : "rgba(200, 211, 219, 0.55)",
+                        transition: "color 300ms ease",
+                      }}
+                    >
+                      {getShortLabel(t.id, t.category)}
+                      {/* Underline: fills across the active tab as you scroll through it */}
+                      <span
+                        style={{
+                          position: "absolute",
+                          left: 0,
+                          bottom: "-1px",
+                          height: "2px",
+                          width: isActive ? `${Math.max(18, segmentProgress * 100)}%` : idx < activeIndex ? "100%" : "0%",
+                          backgroundColor: isActive ? "var(--color-champagne)" : "rgba(199, 166, 120, 0.35)",
+                          transition: "width 150ms linear",
+                        }}
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Content — remounts per tier to replay the entry animation */}
+              <div key={tier.id} className="fleet-split-content">
+                <h3
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    fontSize: "clamp(2rem, 3.4vw, 3rem)",
+                    fontWeight: 700,
+                    lineHeight: 1.1,
+                    letterSpacing: "-0.02em",
+                    color: "#FFFFFF",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {tier.category.replace(/\s*\(.*\)\s*/, "")}
+                </h3>
+
+                <p style={{ fontSize: "1.05rem", lineHeight: 1.65, color: "#C8D3DB", marginBottom: "2rem", maxWidth: "520px" }}>
+                  {tier.tagline} Ideal for {tier.corporateUseCases.slice(0, 2).join(" and ").toLowerCase()}.
+                </p>
+
+                {/* Spec rows — plain typography separated by hairlines */}
+                <dl style={{ margin: 0, marginBottom: "2.25rem", maxWidth: "520px" }}>
+                  {[
+                    { label: "Seating", value: tier.capacity.passengers },
+                    { label: "Luggage", value: tier.capacity.luggage },
+                    { label: "Models", value: tier.typicalModels.join(" · ") },
+                    { label: "Comfort", value: tier.highlights[0] },
+                  ].map((row) => (
+                    <div
+                      key={row.label}
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "110px 1fr",
+                        gap: "1rem",
+                        padding: "0.8rem 0",
+                        borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                      }}
+                    >
+                      <dt
+                        style={{
+                          fontSize: "0.72rem",
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.12em",
+                          color: "var(--color-champagne)",
+                          paddingTop: "0.15rem",
+                        }}
+                      >
+                        {row.label}
+                      </dt>
+                      <dd style={{ margin: 0, fontSize: "0.92rem", color: "#E2E8F0", lineHeight: 1.5 }}>{row.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                {/* CTA — circular arrow + text, like the reference */}
+                <div style={{ display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
+                  <Link
+                    id={`fleet-reserve-${tier.id}`}
+                    href={`/calculator?tier=${tier.id}`}
+                    className="fleet-split-cta"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.85rem",
+                      color: "#FFFFFF",
+                      textDecoration: "none",
+                      fontWeight: 600,
+                      fontSize: "0.95rem",
+                    }}
+                  >
+                    <span
+                      className="fleet-split-cta-circle"
+                      style={{
+                        width: "46px",
+                        height: "46px",
+                        borderRadius: "50%",
+                        backgroundColor: "var(--color-champagne)",
+                        color: "#081521",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        transition: "transform 250ms ease",
+                      }}
+                    >
+                      <ArrowRight size={18} />
+                    </span>
+                    Reserve this tier
+                  </Link>
+
+                  <a
+                    href={`tel:${CONTACT_INFO.phone}`}
+                    style={{ fontSize: "0.88rem", color: "rgba(200, 211, 219, 0.75)", textDecoration: "none" }}
+                  >
+                    or call dispatch {CONTACT_INFO.phoneFormatted}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* =========================== MOBILE: stacked image + text =========================== */}
+      <div className="fleet-split-mobile site-container" style={{ display: "none", paddingBottom: "4rem" }}>
+        {FLEET_TIERS.map((t, idx) => (
+          <article key={t.id} style={{ marginTop: idx === 0 ? "1.5rem" : "3.5rem" }}>
+            <div style={{ position: "relative", height: "240px", borderRadius: "18px", overflow: "hidden", marginBottom: "1.5rem" }}>
+              <Image src={t.imageSrc} alt={t.imageAlt} fill sizes="100vw" style={{ objectFit: "cover" }} />
+            </div>
             <span
               style={{
-                display: "inline-block",
-                fontSize: "0.8rem",
+                display: "block",
+                fontSize: "0.72rem",
                 fontWeight: 700,
                 textTransform: "uppercase",
                 letterSpacing: "0.14em",
@@ -131,440 +354,51 @@ export default function FleetShowcaseSection() {
                 marginBottom: "0.5rem",
               }}
             >
-              Mumbai Commercial Fleet Specifications
+              Tier 0{idx + 1}
             </span>
-            <h2 className="text-section-title" style={{ color: "#FFFFFF", marginBottom: "0.75rem", lineHeight: 1.2 }}>
-              Four Distinct Corporate Fleet Tiers.
-            </h2>
-            <p className="text-lead" style={{ color: "#C8D3DB", marginBottom: 0 }}>
-              Scroll horizontally through our four commercial tiers—from executive sedans and luxury MPVs to employee shuttles and commute fleets.
+            <h3 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#FFFFFF", lineHeight: 1.2, marginBottom: "0.6rem" }}>
+              {t.category.replace(/\s*\(.*\)\s*/, "")}
+            </h3>
+            <p style={{ fontSize: "0.95rem", color: "#C8D3DB", lineHeight: 1.6, marginBottom: "1rem" }}>{t.tagline}</p>
+            <p style={{ fontSize: "0.88rem", color: "#E2E8F0", lineHeight: 1.6, marginBottom: "1.25rem" }}>
+              {t.capacity.passengers} · {t.capacity.luggage}
+              <br />
+              {t.typicalModels.join(" · ")}
             </p>
-          </div>
-
-          {/* Quick Jump Buttons & Scroll Arrows */}
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
-            {/* Quick Tier Jump Buttons */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                backgroundColor: "rgba(255, 255, 255, 0.05)",
-                padding: "0.3rem",
-                borderRadius: "30px",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-              }}
-              className="hidden-mobile"
+            <Link
+              href={`/calculator?tier=${t.id}`}
+              style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "var(--color-champagne)", fontWeight: 600, textDecoration: "none" }}
             >
-              {FLEET_TIERS.map((tier, idx) => {
-                const isSelected = tier.id === activeTierId;
-                return (
-                  <button
-                    key={tier.id}
-                    type="button"
-                    onClick={() => scrollToCard(idx)}
-                    style={{
-                      padding: "0.35rem 0.85rem",
-                      borderRadius: "20px",
-                      fontSize: "0.75rem",
-                      fontWeight: 700,
-                      cursor: "pointer",
-                      border: "none",
-                      backgroundColor: isSelected ? "var(--color-champagne)" : "transparent",
-                      color: isSelected ? "#081521" : "#C8D3DB",
-                      transition: "all 200ms ease",
-                    }}
-                  >
-                    0{idx + 1} {tier.category.split(" ")[0]}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Left / Right Scroll Buttons */}
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-              <button
-                type="button"
-                onClick={() => scrollByAmount("left")}
-                disabled={!canScrollLeft}
-                aria-label="Scroll Fleet Left"
-                style={{
-                  width: "44px",
-                  height: "44px",
-                  borderRadius: "50%",
-                  border: "1px solid rgba(199, 166, 120, 0.35)",
-                  backgroundColor: canScrollLeft ? "rgba(199, 166, 120, 0.15)" : "rgba(255, 255, 255, 0.04)",
-                  color: canScrollLeft ? "var(--color-champagne)" : "#64748B",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: canScrollLeft ? "pointer" : "not-allowed",
-                  opacity: canScrollLeft ? 1 : 0.4,
-                  transition: "all 200ms ease",
-                }}
-              >
-                <ChevronLeft size={20} />
-              </button>
-
-              <button
-                type="button"
-                onClick={() => scrollByAmount("right")}
-                disabled={!canScrollRight}
-                aria-label="Scroll Fleet Right"
-                style={{
-                  width: "44px",
-                  height: "44px",
-                  borderRadius: "50%",
-                  border: "1px solid rgba(199, 166, 120, 0.35)",
-                  backgroundColor: canScrollRight ? "rgba(199, 166, 120, 0.15)" : "rgba(255, 255, 255, 0.04)",
-                  color: canScrollRight ? "var(--color-champagne)" : "#64748B",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: canScrollRight ? "pointer" : "not-allowed",
-                  opacity: canScrollRight ? 1 : 0.4,
-                  transition: "all 200ms ease",
-                }}
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Scrollable Boxes Track (Horizontal Scroll with snap) */}
-        <div
-          ref={scrollRef}
-          className="fleet-scroll-track"
-          style={{
-            display: "flex",
-            gap: "1.75rem",
-            overflowX: "auto",
-            scrollSnapType: "x mandatory",
-            paddingBottom: "1.5rem",
-            paddingTop: "0.5rem",
-            WebkitOverflowScrolling: "touch",
-            scrollbarWidth: "none",
-          }}
-        >
-          {FLEET_TIERS.map((tier, idx) => (
-            <div
-              key={tier.id}
-              style={{
-                flex: "0 0 370px",
-                width: "370px",
-                maxWidth: "85vw",
-                scrollSnapAlign: "start",
-                backgroundColor: "rgba(11, 26, 40, 0.85)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                borderRadius: "20px",
-                border: "1px solid rgba(199, 166, 120, 0.3)",
-                overflow: "hidden",
-                boxShadow: "0 12px 35px rgba(0, 0, 0, 0.4)",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                transition: "all 300ms ease",
-              }}
-              className="fleet-scroll-box"
-            >
-              <div>
-                {/* Vehicle Photograph */}
-                <div
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    height: "210px",
-                    overflow: "hidden",
-                  }}
-                >
-                  <Image
-                    src={tier.imageSrc}
-                    alt={tier.imageAlt}
-                    fill
-                    sizes="(max-width: 900px) 85vw, 370px"
-                    style={{
-                      objectFit: "cover",
-                      objectPosition: "center 45%",
-                      transition: "transform 500ms ease",
-                    }}
-                    className="fleet-box-image"
-                  />
-
-                  {/* Scrim Overlay */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background:
-                        "linear-gradient(180deg, rgba(8, 21, 33, 0.3) 0%, rgba(8, 21, 33, 0.7) 60%, rgba(11, 26, 40, 0.95) 100%)",
-                    }}
-                  />
-
-                  {/* Top Tier Badge */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "0.85rem",
-                      left: "1rem",
-                      right: "1rem",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      zIndex: 2,
-                    }}
-                  >
-                    <span
-                      style={{
-                        backgroundColor: "rgba(8, 21, 33, 0.85)",
-                        backdropFilter: "blur(10px)",
-                        border: "1px solid rgba(199, 166, 120, 0.4)",
-                        color: "var(--color-champagne)",
-                        fontSize: "0.7rem",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.1em",
-                        padding: "0.22rem 0.6rem",
-                        borderRadius: "14px",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "0.35rem",
-                      }}
-                    >
-                      <Sparkles size={11} />
-                      <span>Tier 0{idx + 1}</span>
-                    </span>
-
-                    <span
-                      style={{
-                        fontFamily: "var(--font-heading)",
-                        fontSize: "1.4rem",
-                        fontWeight: 900,
-                        color: "rgba(255, 255, 255, 0.22)",
-                      }}
-                    >
-                      0{idx + 1}
-                    </span>
-                  </div>
-
-                  {/* Bottom Capacity Pills on Photo */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: "0.85rem",
-                      left: "1rem",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.45rem",
-                      zIndex: 2,
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "0.35rem",
-                        backgroundColor: "rgba(8, 21, 33, 0.88)",
-                        backdropFilter: "blur(10px)",
-                        padding: "0.25rem 0.6rem",
-                        borderRadius: "6px",
-                        border: "1px solid rgba(199, 166, 120, 0.3)",
-                        color: "#FFFFFF",
-                        fontSize: "0.74rem",
-                        fontWeight: 600,
-                      }}
-                    >
-                      <Users size={12} style={{ color: "var(--color-champagne)" }} />
-                      <span>{tier.capacity.passengers}</span>
-                    </div>
-
-                    <div
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "0.35rem",
-                        backgroundColor: "rgba(8, 21, 33, 0.88)",
-                        backdropFilter: "blur(10px)",
-                        padding: "0.25rem 0.6rem",
-                        borderRadius: "6px",
-                        border: "1px solid rgba(255, 255, 255, 0.15)",
-                        color: "#C8D3DB",
-                        fontSize: "0.74rem",
-                        fontWeight: 600,
-                      }}
-                    >
-                      <Briefcase size={12} style={{ color: "var(--color-champagne)" }} />
-                      <span>{tier.capacity.luggage.split("+")[0]}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Box Specifications Content */}
-                <div style={{ padding: "1.4rem 1.5rem" }}>
-                  <h3
-                    style={{
-                      fontSize: "1.25rem",
-                      fontWeight: 800,
-                      color: "#FFFFFF",
-                      lineHeight: 1.25,
-                      marginBottom: "0.3rem",
-                      letterSpacing: "-0.01em",
-                    }}
-                  >
-                    {tier.category}
-                  </h3>
-
-                  <p
-                    style={{
-                      fontSize: "0.84rem",
-                      color: "var(--color-champagne)",
-                      fontWeight: 600,
-                      lineHeight: 1.4,
-                      marginBottom: "0.85rem",
-                    }}
-                  >
-                    {tier.tagline}
-                  </p>
-
-                  {/* Typical Models Chips */}
-                  <div style={{ marginBottom: "1rem" }}>
-                    <span
-                      style={{
-                        display: "block",
-                        fontSize: "0.68rem",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.08em",
-                        color: "#81909A",
-                        marginBottom: "0.4rem",
-                      }}
-                    >
-                      Representative Fleet Models:
-                    </span>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
-                      {tier.typicalModels.map((model) => (
-                        <span
-                          key={model}
-                          style={{
-                            fontSize: "0.75rem",
-                            backgroundColor: "rgba(255, 255, 255, 0.06)",
-                            border: "1px solid rgba(199, 166, 120, 0.25)",
-                            padding: "0.2rem 0.55rem",
-                            borderRadius: "4px",
-                            color: "#FFFFFF",
-                            fontWeight: 600,
-                          }}
-                        >
-                          {model}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Top 3 Core Specifications */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem", marginBottom: "1.25rem" }}>
-                    {tier.highlights.slice(0, 3).map((item, hIdx) => (
-                      <div
-                        key={hIdx}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "0.45rem",
-                          fontSize: "0.8rem",
-                          color: "#CBD5E1",
-                        }}
-                      >
-                        <CheckCircle2 size={13} style={{ color: "var(--color-champagne)", flexShrink: 0 }} />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons Strip */}
-              <div
-                style={{
-                  padding: "1rem 1.5rem",
-                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  gap: "0.75rem",
-                  backgroundColor: "rgba(8, 21, 33, 0.4)",
-                }}
-              >
-                <Link
-                  href={`/calculator?tier=${tier.id}`}
-                  className="btn btn-champagne"
-                  style={{ padding: "0.5rem 1rem", fontSize: "0.8rem", flex: 1, justifyContent: "center" }}
-                >
-                  <span>Reserve Tier</span>
-                  <ArrowRight size={13} />
-                </Link>
-
-                <a
-                  href={`tel:${CONTACT_INFO.phone}`}
-                  aria-label="Direct Dispatch Phone"
-                  style={{
-                    width: "36px",
-                    height: "36px",
-                    borderRadius: "8px",
-                    backgroundColor: "rgba(255, 255, 255, 0.06)",
-                    border: "1px solid rgba(255, 255, 255, 0.15)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--color-champagne)",
-                    textDecoration: "none",
-                    flexShrink: 0,
-                  }}
-                >
-                  <PhoneCall size={15} />
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Scroll Progress Bar */}
-        <div
-          style={{
-            marginTop: "1.5rem",
-            width: "100%",
-            maxWidth: "360px",
-            margin: "1.5rem auto 0 auto",
-            height: "3px",
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "3px",
-            overflow: "hidden",
-            position: "relative",
-          }}
-        >
-          <div
-            style={{
-              height: "100%",
-              width: `${Math.max(25, scrollProgress * 100)}%`,
-              background: "linear-gradient(90deg, var(--color-champagne) 0%, var(--color-champagne-light) 100%)",
-              borderRadius: "3px",
-              transition: "width 0.15s ease-out",
-            }}
-          />
-        </div>
+              Reserve this tier <ArrowRight size={16} />
+            </Link>
+          </article>
+        ))}
       </div>
 
       <style jsx>{`
-        :global(.fleet-scroll-track::-webkit-scrollbar) {
-          display: none;
+        :global(.fleet-split-content) {
+          animation: fleetTextIn 600ms cubic-bezier(0.16, 1, 0.3, 1);
         }
-        :global(.fleet-scroll-box:hover) {
-          transform: translateY(-5px);
-          border-color: rgba(199, 166, 120, 0.6) !important;
-          box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(199, 166, 120, 0.15) !important;
+        @keyframes fleetTextIn {
+          from {
+            opacity: 0;
+            transform: translateY(18px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        :global(.fleet-scroll-box:hover .fleet-box-image) {
-          transform: scale(1.04);
+        :global(.fleet-split-cta:hover .fleet-split-cta-circle) {
+          transform: translateX(4px);
+        }
+        @media (max-width: 860px) {
+          :global(.fleet-split-stage) {
+            display: none;
+          }
+          :global(.fleet-split-mobile) {
+            display: block !important;
+          }
         }
       `}</style>
     </section>
