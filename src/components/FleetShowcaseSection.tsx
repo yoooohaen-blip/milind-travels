@@ -831,18 +831,15 @@ export default function FleetShowcaseSection({ isHomePage = false }: FleetShowca
                     className="fleet-card-body"
                   >
                     <div>
-                      {/* Status Pill & Category Headline */}
-                      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.25rem" }}>
+                      {/* Status Text & Category Headline */}
+                      <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", marginBottom: "0.25rem" }}>
                         <span
                           style={{
-                            fontSize: "0.65rem",
+                            fontSize: "0.7rem",
                             fontWeight: 700,
                             textTransform: "uppercase",
                             letterSpacing: "0.08em",
                             color: isHit ? "#10B981" : "var(--color-slate-gray)",
-                            backgroundColor: isHit ? "rgba(16, 185, 129, 0.12)" : "rgba(255, 255, 255, 0.05)",
-                            padding: "0.12rem 0.45rem",
-                            borderRadius: "8px",
                           }}
                         >
                           {isHit ? "✓ Specification Active" : `Approaching Tier 0${idx + 1}`}

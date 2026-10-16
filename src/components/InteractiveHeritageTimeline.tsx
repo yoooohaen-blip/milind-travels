@@ -575,13 +575,13 @@ export default function InteractiveHeritageTimeline() {
                         }}
                       />
 
-                      {/* Floating Glass Pills on Image */}
+                      {/* Typography Header on Image (Clean text, no pill container) */}
                       <div
                         style={{
                           position: "absolute",
-                          top: "0.85rem",
-                          left: "1rem",
-                          right: "1rem",
+                          top: "0.9rem",
+                          left: "1.1rem",
+                          right: "1.1rem",
                           display: "flex",
                           justifyContent: "space-between",
                           alignItems: "center",
@@ -590,16 +590,12 @@ export default function InteractiveHeritageTimeline() {
                       >
                         <span
                           style={{
-                            fontSize: "0.72rem",
+                            fontSize: "0.78rem",
                             fontWeight: 700,
                             textTransform: "uppercase",
-                            letterSpacing: "0.08em",
+                            letterSpacing: "0.12em",
                             color: "var(--color-champagne)",
-                            backgroundColor: "rgba(8, 21, 33, 0.85)",
-                            backdropFilter: "blur(8px)",
-                            padding: "0.25rem 0.65rem",
-                            borderRadius: "14px",
-                            border: "1px solid rgba(199, 166, 120, 0.3)",
+                            textShadow: "0 2px 8px rgba(0, 0, 0, 0.9)",
                           }}
                         >
                           {item.era}
@@ -607,14 +603,11 @@ export default function InteractiveHeritageTimeline() {
 
                         <span
                           style={{
-                            fontSize: "0.72rem",
-                            fontWeight: 600,
+                            fontSize: "0.78rem",
+                            fontWeight: 700,
+                            letterSpacing: "0.06em",
                             color: "#FFFFFF",
-                            backgroundColor: "rgba(8, 21, 33, 0.85)",
-                            backdropFilter: "blur(8px)",
-                            padding: "0.25rem 0.65rem",
-                            borderRadius: "14px",
-                            border: "1px solid rgba(255, 255, 255, 0.15)",
+                            textShadow: "0 2px 8px rgba(0, 0, 0, 0.9)",
                           }}
                         >
                           Est. {item.year}
@@ -624,33 +617,29 @@ export default function InteractiveHeritageTimeline() {
 
                     {/* Card Content (Reduced, Crisp Copy with Goal Status) */}
                     <div style={{ padding: "1.4rem 1.6rem" }}>
-                      {/* Goal Achievement Badge */}
+                      {/* Goal Achievement Status (Clean text, no pill container) */}
                       <div
                         style={{
-                          display: "inline-flex",
+                          display: "flex",
                           alignItems: "center",
-                          gap: "0.35rem",
-                          fontSize: "0.68rem",
+                          gap: "0.45rem",
+                          fontSize: "0.72rem",
                           fontWeight: 700,
-                          letterSpacing: "0.06em",
+                          letterSpacing: "0.08em",
                           textTransform: "uppercase",
-                          padding: "0.25rem 0.65rem",
-                          borderRadius: "20px",
-                          marginBottom: "0.65rem",
-                          backgroundColor: isHit ? "rgba(16, 185, 129, 0.1)" : "rgba(8, 21, 33, 0.05)",
                           color: isHit ? "#059669" : "#64748B",
-                          border: isHit ? "1px solid rgba(16, 185, 129, 0.3)" : "1px solid rgba(8, 21, 33, 0.08)",
-                          transition: "all 300ms ease",
+                          marginBottom: "0.6rem",
+                          transition: "color 300ms ease",
                         }}
                       >
                         {isHit ? (
                           <>
-                            <CheckCircle2 size={12} strokeWidth={2.5} style={{ color: "#10B981" }} />
+                            <CheckCircle2 size={13} strokeWidth={2.5} style={{ color: "#10B981" }} />
                             <span>Goal 0{idx + 1} Achieved & Operational</span>
                           </>
                         ) : (
                           <>
-                            <Clock size={12} style={{ color: "#81909A" }} />
+                            <Clock size={13} style={{ color: "#81909A" }} />
                             <span>Target Goal 0{idx + 1} • Approaching</span>
                           </>
                         )}
