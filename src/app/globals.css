@@ -501,8 +501,51 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 12px rgba(8, 21, 33, 0.15);
 }
 
-/* Preloader Active State Hand-off */
+/* ==========================================================================
+   CRITICAL ZERO-FLASH PRELOADER SYSTEM
+   ========================================================================== */
+html.preloader-active {
+  overflow: hidden !important;
+}
+
 html.preloader-active #hero-logo-placeholder {
   opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+#preloader-outer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  background-color: #050D15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  will-change: opacity;
+}
+
+.preloader-ambient-glow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(199, 166, 120, 0.2) 0%,
+    rgba(8, 21, 33, 0.35) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.preloader-logo-frame {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transform-origin: center center;
 }
 

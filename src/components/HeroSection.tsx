@@ -244,12 +244,14 @@ export default function HeroSection() {
           align-items: center;
           justify-content: center;
           margin-bottom: clamp(1.25rem, 2.5vw, 1.85rem);
+          min-height: clamp(52px, 7vw, 76px);
           will-change: transform, opacity;
           transition: opacity 0.3s ease;
         }
 
         :global(html.preloader-active) .hero-logo-placeholder {
           opacity: 0 !important;
+          visibility: hidden !important;
         }
 
         .spyker-headline {
