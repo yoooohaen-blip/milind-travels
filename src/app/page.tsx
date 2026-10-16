@@ -4,7 +4,6 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import HomeServicesShowcase from "@/components/HomeServicesShowcase";
-import FleetShowcaseSection from "@/components/FleetShowcaseSection";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
@@ -348,8 +347,93 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Fleet Tiers Portal Section (Interactive Animated Highway & Compact Dossier Cards) */}
-      <FleetShowcaseSection isHomePage={true} />
+      {/* 4. Fleet Tiers Portal Section */}
+      <section className="section-py surface-dark" style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.08)" }}>
+        <div className="site-container">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              flexWrap: "wrap",
+              gap: "1.5rem",
+              marginBottom: "3.5rem",
+            }}
+          >
+            <div style={{ maxWidth: "760px" }}>
+              <h2 className="text-section-title" style={{ color: "#FFFFFF" }}>
+                Multi-Tier Corporate Fleet
+                <br />
+                Engineered for Every Requirement.
+              </h2>
+            </div>
+
+            <Link href="/fleet" className="btn btn-champagne">
+              <span>View Full Fleet Specifications</span>
+              <ArrowRight size={15} />
+            </Link>
+          </div>
+
+          <div className="grid-12">
+            {FLEET_TIERS.map((tier) => (
+              <div
+                key={tier.id}
+                className="card-dark"
+                style={{
+                  gridColumn: "span 3",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  padding: "1.5rem",
+                }}
+              >
+                <div>
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "100%",
+                      height: "160px",
+                      borderRadius: "var(--radius-sm)",
+                      overflow: "hidden",
+                      marginBottom: "1.25rem",
+                      backgroundColor: "#0D1721",
+                    }}
+                  >
+                    <Image
+                      src={tier.imageSrc}
+                      alt={tier.imageAlt}
+                      fill
+                      sizes="(max-width: 900px) 100vw, 25vw"
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+
+                  <span style={{ fontSize: "0.75rem", color: "var(--color-champagne)", fontWeight: 700, textTransform: "uppercase" }}>
+                    {tier.capacity.passengers}
+                  </span>
+
+                  <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#FFFFFF", marginTop: "0.25rem", marginBottom: "0.4rem" }}>
+                    {tier.category}
+                  </h3>
+
+                  <p style={{ fontSize: "0.82rem", color: "#C8D3DB", lineHeight: 1.5, marginBottom: "1rem" }}>
+                    {tier.typicalModels.join(", ")}
+                  </p>
+                </div>
+
+                <Link
+                  href="/fleet"
+                  className="btn btn-outline-dark btn-sm"
+                  style={{ width: "100%", justifyContent: "space-between" }}
+                >
+                  <span>Tier Details</span>
+                  <ArrowRight size={13} />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* 5. Interactive Calculator Callout Banner */}
       <section className="section-py surface-light" style={{ borderBottom: "1px solid rgba(8, 21, 33, 0.08)" }}>
