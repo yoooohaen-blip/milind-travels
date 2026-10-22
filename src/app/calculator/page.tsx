@@ -7,9 +7,9 @@ import InteractiveProposalCalculator from "@/components/InteractiveProposalCalcu
 import { CheckCircle2, Clock, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Corporate Mobility RFP & Route Calculator | Milind Travels Mumbai",
+  title: "Corporate Mobility RFP & Route Calculator | Milind Travels Private Limited",
   description:
-    "Configure your organization's employee commute requirements, select Mumbai corridors, choose fleet tiers, and receive a tailored corporate mobility proposal.",
+    "Configure your organization's employee commute requirements, select Mumbai corridors, choose fleet tiers, and receive a tailored corporate mobility proposal from Milind Travels Private Limited.",
 };
 
 export default function CalculatorPage() {

@@ -4,14 +4,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AboutHeritageSection from "@/components/AboutHeritageSection";
 import InteractiveHeritageTimeline from "@/components/InteractiveHeritageTimeline";
+import HomeIntroDirectorsSection from "@/components/HomeIntroDirectorsSection";
 import Link from "next/link";
 import { Award, CheckCircle2, ArrowRight } from "lucide-react";
-import { COMPANY_HERITAGE, CONTACT_INFO } from "@/data/content";
+import { COMPANY_HERITAGE, CONTACT_INFO, SITE_METADATA } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "About Us & Company Heritage | Milind Travels Mumbai (Est. 2000)",
+  title: "About Us & Board of Directors | Milind Travels Private Limited",
   description:
-    "Founded in 2000, Milind Travels is an established corporate passenger transportation provider in Mumbai. Learn about our mission, vision, and 24+ years journey.",
+    "Founded in 2000, Milind Travels Private Limited is an established corporate passenger transportation provider in Mumbai. Meet our Directors Milind Prabhakar Phodkar and Sarvesh Milind Phodkar.",
 };
 
 export default function AboutPage() {
@@ -54,6 +55,9 @@ export default function AboutPage() {
           <InteractiveHeritageTimeline />
         </div>
       </section>
+
+      {/* Introduction to Milind Travels Private Limited & Board of Directors */}
+      <HomeIntroDirectorsSection />
 
       {/* Heritage Narrative & Mission/Vision/Values (Positioned After Timeline) */}
       <AboutHeritageSection />

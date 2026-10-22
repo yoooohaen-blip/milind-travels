@@ -39,8 +39,8 @@ export default function Preloader() {
         const deltaY = Math.round(targetCenterY - sourceCenterY);
 
         // Precise height-based scale factor
-        const sourceHeight = sourceRect.height || 76;
-        const targetHeight = targetRect.height || 76;
+        const sourceHeight = sourceRect.height || 125;
+        const targetHeight = targetRect.height || 125;
         const scale = sourceHeight > 0 ? targetHeight / sourceHeight : 1;
 
         setIsTransitioning(true);
@@ -103,15 +103,15 @@ export default function Preloader() {
         <Image
           src="/images/brand/milind-logo-white-2x.png"
           alt="Milind Travels Mumbai"
-          width={260}
-          height={90}
+          width={500}
+          height={175}
           priority
-          sizes="260px"
+          sizes="500px"
           style={{
             objectFit: "contain",
             width: "auto",
-            height: "76px",
-            filter: "drop-shadow(0 4px 24px rgba(199, 166, 120, 0.45)) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.8))",
+            height: "125px",
+            filter: "drop-shadow(0 6px 30px rgba(199, 166, 120, 0.5)) drop-shadow(0 3px 12px rgba(0, 0, 0, 0.85))",
           }}
         />
       </div>

@@ -3,6 +3,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import HomeIntroDirectorsSection from "@/components/HomeIntroDirectorsSection";
 import HomeServicesShowcase from "@/components/HomeServicesShowcase";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -30,13 +31,13 @@ export default function HomePage() {
     switch (id) {
       case "staff-transportation":
         return <Users size={20} style={{ color: "var(--color-midnight-navy)" }} />;
-      case "fleet-management":
+      case "ad-hoc-duty":
         return <ShieldCheck size={20} style={{ color: "var(--color-midnight-navy)" }} />;
-      case "car-rentals":
-        return <Crown size={20} style={{ color: "var(--color-midnight-navy)" }} />;
       case "airport-transfers":
-      default:
         return <PlaneTakeoff size={20} style={{ color: "var(--color-midnight-navy)" }} />;
+      case "custom-packages":
+      default:
+        return <CalendarRange size={20} style={{ color: "var(--color-midnight-navy)" }} />;
     }
   };
 
@@ -53,6 +54,9 @@ export default function HomePage() {
 
       {/* 1. Cinematic Hero Section */}
       <HeroSection />
+
+      {/* 2. Introduction of Milind Travels Private Limited & Board of Directors */}
+      <HomeIntroDirectorsSection />
 
       {/* 2. Strategic Difference Teaser (Ad-Hoc vs Managed Enterprise Mobility) with Glass Bubbles */}
       <section
@@ -337,7 +341,7 @@ export default function HomePage() {
             </div>
 
             <Link href="/services" className="btn btn-navy">
-              <span>View All 5 Services</span>
+              <span>View All 4 Services</span>
               <ArrowRight size={15} />
             </Link>
           </div>

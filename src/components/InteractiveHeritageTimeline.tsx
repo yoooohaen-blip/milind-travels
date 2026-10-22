@@ -153,10 +153,6 @@ export default function InteractiveHeritageTimeline() {
   };
 
   const activeIndex = MILESTONES.findIndex((m) => m.year === activeYear);
-  const hitCount = MILESTONES.filter((m) => {
-    const y = nodeOffsets[m.year];
-    return y !== undefined && carY >= y - 25;
-  }).length || 1;
 
   return (
     <div ref={containerRef} style={{ position: "relative" }}>
@@ -190,17 +186,6 @@ export default function InteractiveHeritageTimeline() {
           >
             {/* Left: Active Era Display & Milestones Counter */}
             <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", flexWrap: "wrap" }}>
-              <span
-                style={{
-                  fontSize: "0.72rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.12em",
-                  color: "var(--color-slate-gray)",
-                }}
-              >
-                Milind Highway:
-              </span>
               <div
                 style={{
                   fontFamily: "var(--font-heading)",
@@ -217,25 +202,6 @@ export default function InteractiveHeritageTimeline() {
                 <span style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-champagne-dark)" }}>
                   ({MILESTONES[activeIndex]?.title.split(" ")[0]} Milestone)
                 </span>
-              </div>
-
-              {/* Real-time Milestones Reached Pill */}
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.35rem",
-                  padding: "0.25rem 0.65rem",
-                  borderRadius: "20px",
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  backgroundColor: hitCount === 5 ? "rgba(16, 185, 129, 0.15)" : "rgba(199, 166, 120, 0.15)",
-                  color: hitCount === 5 ? "#059669" : "var(--color-champagne-dark)",
-                  border: hitCount === 5 ? "1px solid rgba(16, 185, 129, 0.35)" : "1px solid rgba(199, 166, 120, 0.3)",
-                }}
-              >
-                <CheckCircle2 size={13} strokeWidth={2.5} />
-                <span>{hitCount}/5 Milestones Reached</span>
               </div>
             </div>
 
@@ -424,49 +390,79 @@ export default function InteractiveHeritageTimeline() {
                       transform: "translate(-50%, -50%)",
                       zIndex: 10,
                       cursor: "pointer",
-                      width: isCurrent ? "72px" : "60px",
-                      height: isCurrent ? "72px" : "60px",
+                      width: isCurrent ? "92px" : "84px",
+                      height: isCurrent ? "92px" : "84px",
                       borderRadius: "50%",
                       background: isHit
-                        ? "radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 30%, rgba(225, 205, 175, 0.8) 70%, rgba(199, 166, 120, 0.95) 100%)"
-                        : "radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.6) 60%, rgba(240, 235, 225, 0.7) 100%)",
+                        ? "radial-gradient(circle at 35% 25%, #FFFFFF 0%, #FAF8F5 35%, #F1E7D8 70%, #E3D0B6 100%)"
+                        : "radial-gradient(circle at 35% 25%, #FFFFFF 0%, #F8F9FA 45%, #EBEFF2 85%, #DFE5EA 100%)",
                       border: isHit
                         ? "2.5px solid #FFFFFF"
-                        : "1.5px solid rgba(255, 255, 255, 0.85)",
+                        : "2px solid rgba(255, 255, 255, 0.95)",
                       boxShadow: isHit
-                        ? "0 0 35px rgba(199, 166, 120, 0.65), inset 2px 2px 6px rgba(255, 255, 255, 1), 0 10px 24px rgba(8, 21, 33, 0.16)"
-                        : "0 6px 18px rgba(8, 21, 33, 0.06), inset 2px 2px 4px rgba(255, 255, 255, 0.9)",
+                        ? "0 0 28px rgba(199, 166, 120, 0.55), inset 0 0 0 1px rgba(199, 166, 120, 0.45), inset 2px 2px 6px rgba(255, 255, 255, 1), 0 10px 24px rgba(8, 21, 33, 0.12)"
+                        : "0 6px 18px rgba(8, 21, 33, 0.08), inset 0 0 0 1px rgba(126, 142, 155, 0.22), inset 2px 2px 5px rgba(255, 255, 255, 0.95)",
                       backdropFilter: "blur(16px)",
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
                       justifyContent: "center",
+                      gap: "2px",
+                      padding: "6px",
                       transition: "all 300ms ease",
                     }}
                     className="timeline-center-node"
                   >
+                    {/* Subtle Inner Concentric Ring (Minted Medallion Bezel) */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: "4px",
+                        borderRadius: "50%",
+                        border: isHit
+                          ? "1px dashed rgba(199, 166, 120, 0.5)"
+                          : "1px dashed rgba(126, 142, 155, 0.25)",
+                        pointerEvents: "none",
+                      }}
+                    />
+
+                    {/* Glass Bubble Top-Left Specular Reflection */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "8px",
+                        left: "14px",
+                        width: "18px",
+                        height: "9px",
+                        borderRadius: "50%",
+                        background: "linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.25))",
+                        transform: "rotate(-35deg)",
+                        pointerEvents: "none",
+                      }}
+                    />
+
                     {/* Milestone Checkmark Badge */}
                     {isHit && (
                       <div
                         style={{
                           position: "absolute",
-                          top: "-6px",
-                          right: "-6px",
+                          top: "-3px",
+                          right: "-3px",
                           backgroundColor: "var(--color-midnight-navy)",
                           border: "2px solid var(--color-champagne)",
                           color: "var(--color-champagne)",
-                          width: "22px",
-                          height: "22px",
+                          width: "24px",
+                          height: "24px",
                           borderRadius: "50%",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          boxShadow: "0 0 12px rgba(199, 166, 120, 0.8)",
+                          boxShadow: "0 2px 10px rgba(0, 0, 0, 0.35), 0 0 12px rgba(199, 166, 120, 0.65)",
                           zIndex: 12,
                         }}
                         title="Milestone Achieved"
                       >
-                        <CheckCircle2 size={13} strokeWidth={2.5} />
+                        <CheckCircle2 size={13} strokeWidth={2.7} />
                       </div>
                     )}
 
@@ -484,29 +480,68 @@ export default function InteractiveHeritageTimeline() {
                       />
                     )}
 
+                    {/* Top Micro-label: MILESTONE */}
                     <span
+                      className="timeline-bubble-label"
                       style={{
-                        fontFamily: "var(--font-heading)",
-                        fontSize: isCurrent ? "1.05rem" : "0.92rem",
-                        fontWeight: 800,
-                        color: isHit ? "var(--color-midnight-navy)" : "var(--color-slate-gray)",
-                        letterSpacing: "-0.02em",
+                        fontFamily: "var(--font-plus-jakarta), sans-serif",
+                        fontSize: "0.46rem",
+                        fontWeight: 750,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.15em",
+                        color: isHit ? "var(--color-champagne-dark)" : "#7E8E9B",
                         lineHeight: 1,
+                        display: "block",
+                        whiteSpace: "nowrap",
+                        userSelect: "none",
+                        position: "relative",
+                        zIndex: 2,
+                      }}
+                    >
+                      Milestone
+                    </span>
+
+                    {/* Center Hero Year: Regal Cinzel Serif */}
+                    <span
+                      className="timeline-bubble-year"
+                      style={{
+                        fontFamily: "var(--font-cinzel), Georgia, serif",
+                        fontSize: isCurrent ? "1.32rem" : "1.18rem",
+                        fontWeight: 800,
+                        color: isHit ? "var(--color-midnight-navy)" : "#2C3E50",
+                        letterSpacing: "0.03em",
+                        lineHeight: 1.05,
+                        display: "block",
+                        userSelect: "none",
+                        position: "relative",
+                        zIndex: 2,
                       }}
                     >
                       {item.year}
                     </span>
+
+                    {/* Bottom Numeral Capsule Badge: 01, 02, etc. */}
                     <span
+                      className="timeline-bubble-index"
                       style={{
-                        fontSize: "0.58rem",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.08em",
-                        color: isHit ? "var(--color-champagne-dark)" : "#81909A",
-                        marginTop: "2px",
+                        fontFamily: "var(--font-plus-jakarta), sans-serif",
+                        fontSize: "0.52rem",
+                        fontWeight: 800,
+                        letterSpacing: "0.06em",
+                        color: isHit ? "#684E25" : "#647482",
+                        backgroundColor: isHit ? "rgba(199, 166, 120, 0.24)" : "rgba(126, 142, 155, 0.14)",
+                        border: isHit ? "1px solid rgba(199, 166, 120, 0.55)" : "1px solid rgba(126, 142, 155, 0.3)",
+                        padding: "1.5px 7px",
+                        borderRadius: "999px",
+                        lineHeight: 1.1,
+                        display: "inline-block",
+                        whiteSpace: "nowrap",
+                        userSelect: "none",
+                        position: "relative",
+                        zIndex: 2,
                       }}
                     >
-                      Milestone 0{idx + 1}
+                      0{idx + 1}
                     </span>
                   </div>
 
@@ -746,11 +781,21 @@ export default function InteractiveHeritageTimeline() {
           :global(.timeline-center-node) {
             left: 28px !important;
             transform: translate(-50%, -50%) !important;
-            width: 52px !important;
-            height: 52px !important;
+            width: 68px !important;
+            height: 68px !important;
+            padding: 4px !important;
+            gap: 1.5px !important;
           }
-          :global(.timeline-center-node span:first-child) {
-            font-size: 0.85rem !important;
+          :global(.timeline-bubble-label) {
+            font-size: 0.38rem !important;
+            letter-spacing: 0.1em !important;
+          }
+          :global(.timeline-bubble-year) {
+            font-size: 0.98rem !important;
+          }
+          :global(.timeline-bubble-index) {
+            font-size: 0.42rem !important;
+            padding: 1px 5px !important;
           }
           :global(.timeline-connector-line) {
             left: 28px !important;

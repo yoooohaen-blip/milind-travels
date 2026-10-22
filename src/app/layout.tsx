@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Plus_Jakarta_Sans } from "next/font/google";
+import { Cinzel, Manrope, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { CONTACT_INFO, SITE_METADATA } from "@/data/content";
 import Preloader from "@/components/Preloader";
@@ -18,30 +18,37 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ["500", "600", "700", "800"],
 });
 
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-cinzel",
+  display: "swap",
+  weight: ["600", "700", "800", "900"],
+});
+
 export const metadata: Metadata = {
-  title: "Milind Travels — Enterprise Corporate Transportation & Fleet Logistics | Mumbai",
+  title: "Milind Travels Private Limited — Enterprise Corporate Transportation & Fleet Logistics | Mumbai",
   description:
-    "Established in 2000. Enterprise employee transportation, dedicated corporate fleet management, and luxury executive car rentals for Mumbai's leading organizations and BPOs. Corporate Office at Kailas Business Park, Vikhroli West.",
+    "Established in 2000. Milind Travels Private Limited provides Staff Transportation, Ad-Hoc Duty for Connected Clients, Airport Transfers, and Customized Mobility Packages for Mumbai's leading organizations and BPOs. Corporate Office at Kailas Business Park, Vikhroli West.",
   keywords: [
+    "Milind Travels Private Limited",
     "Corporate Staff Transportation Mumbai",
     "Employee Pickup and Drop Services Mumbai",
-    "Corporate Cab Services Vikhroli",
-    "BPO Transportation Mumbai",
-    "Fleet Management Services Mumbai",
-    "Corporate Car Rental BKC",
-    "Luxury Car Rental Mumbai",
+    "Ad-Hoc Corporate Cabs Mumbai",
+    "Corporate Airport Transfers CSMIA Mumbai",
+    "Custom Corporate Travel Packages Mumbai",
+    "Fleet Management Services Vikhroli",
     "Milind Travels Mumbai",
   ],
-  authors: [{ name: "Milind Travels", url: SITE_METADATA.siteUrl }],
-  creator: "Milind Travels",
-  publisher: "Milind Travels",
+  authors: [{ name: "Milind Travels Private Limited", url: SITE_METADATA.siteUrl }],
+  creator: "Milind Travels Private Limited",
+  publisher: "Milind Travels Private Limited",
   metadataBase: new URL(SITE_METADATA.siteUrl),
   openGraph: {
-    title: "Milind Travels — Enterprise Corporate Transportation & Fleet Management",
+    title: "Milind Travels Private Limited — Enterprise Corporate Transportation & Fleet Logistics",
     description:
-      "24+ years of passenger mobility excellence in Mumbai. Dedicated staff transport, executive sedans, and turnkey fleet management for multinational corporations and BPOs.",
+      "24+ years of passenger mobility excellence in Mumbai. Staff Transportation, Ad-Hoc Duty for Connected Clients, Airport Transfers, and Custom Corporate Packages for multinational corporations.",
     url: SITE_METADATA.siteUrl,
-    siteName: "Milind Travels",
+    siteName: "Milind Travels Private Limited",
     locale: "en_IN",
     type: "website",
     images: [
@@ -49,15 +56,15 @@ export const metadata: Metadata = {
         url: "/images/hero-cinematic.jpg",
         width: 1200,
         height: 630,
-        alt: "Milind Travels Corporate Fleet Lineup in Mumbai",
+        alt: "Milind Travels Private Limited Corporate Fleet Lineup in Mumbai",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Milind Travels — Enterprise Corporate Transportation | Mumbai",
+    title: "Milind Travels Private Limited — Enterprise Corporate Transportation | Mumbai",
     description:
-      "Specialized employee transportation and fleet management in Mumbai since 2000. Headquartered at Kailas Business Park, Vikhroli West.",
+      "Specialized employee transportation and corporate mobility services in Mumbai since 2000. Headquartered at Kailas Business Park, Vikhroli West.",
     images: ["/images/hero-cinematic.jpg"],
   },
   icons: {
@@ -78,11 +85,12 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "AutoRental",
-    "name": "Milind Travels",
-    "legalName": "Milind Travels",
+    "name": "Milind Travels Private Limited",
+    "legalName": "Milind Travels Private Limited",
+    "identifier": SITE_METADATA.cin,
     "foundingDate": "2000",
     "description":
-      "Established in 2000, Milind Travels provides corporate staff transportation, employee pickup and drop services, dedicated fleet management, and luxury car rentals across Mumbai and MMR.",
+      "Established in 2000, Milind Travels Private Limited provides staff transportation, ad-hoc duties for connected corporate clients, airport transfers, and tailored corporate travel packages across Mumbai and MMR.",
     "url": "https://www.milindtravels.com",
     "telephone": CONTACT_INFO.phone,
     "email": CONTACT_INFO.primaryEmail,
@@ -115,7 +123,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${manrope.variable} ${plusJakarta.variable} preloader-active`}>
+    <html lang="en" className={`${manrope.variable} ${plusJakarta.variable} ${cinzel.variable} preloader-active`}>
       <head>
         <script
           dangerouslySetInnerHTML={{

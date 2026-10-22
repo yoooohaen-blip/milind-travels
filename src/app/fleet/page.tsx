@@ -9,9 +9,9 @@ import { ArrowRight, Check, ShieldCheck, Wrench } from "lucide-react";
 import { FLEET_TIERS } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Corporate Fleet Architecture & Vehicles | Milind Travels Mumbai",
+  title: "Corporate Fleet Architecture & Vehicles | Milind Travels Private Limited",
   description:
-    "Explore Milind Travels corporate fleet tiers: executive sedans, premium multi-passenger MPVs, workforce shuttles, and economy staff commute cabs.",
+    "Explore Milind Travels Private Limited corporate fleet tiers: executive sedans, premium multi-passenger MPVs, workforce shuttles, and economy staff commute cabs.",
 };
 
 export default function FleetPage() {

@@ -9,9 +9,9 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { CORE_SERVICES } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Corporate Transportation Services | Milind Travels Mumbai",
+  title: "Corporate Transportation Services | Milind Travels Private Limited",
   description:
-    "Explore our complete range of enterprise passenger mobility solutions: employee staff transport, dedicated fleet management, executive chauffeur rentals, and airport transfers.",
+    "Explore our enterprise corporate mobility solutions: Staff Transportation, Ad-Hoc Duty for Connected Clients, Airport Transfers, and Customized Packages tailored to client requirements.",
 };
 
 export default function ServicesPage() {
@@ -22,7 +22,7 @@ export default function ServicesPage() {
       <PageHeader
         eyebrow="ENTERPRISE MOBILITY PORTFOLIO"
         title="Corporate Transportation & Fleet Services"
-        subtitle="End-to-end employee commute solutions, outsourced fleet management, and VIP executive mobility engineered for Mumbai’s corporate organizations, BPOs, and multinationals."
+        subtitle="End-to-end staff transportation, prioritized ad-hoc duty for connected clients, punctual CSMIA airport transfers, and customized packages tailored to your organization’s exact operational requirements."
       />
 
       {/* Main Interactive Services Component */}

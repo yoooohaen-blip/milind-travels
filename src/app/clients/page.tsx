@@ -8,9 +8,9 @@ import Link from "next/link";
 import { ShieldCheck, ArrowRight, Laptop, Briefcase, Landmark, Stethoscope } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Enterprise Client Portfolio & Sectors | Milind Travels Mumbai",
+  title: "Enterprise Client Portfolio & Sectors | Milind Travels Private Limited",
   description:
-    "Discover the enterprise organizations and industries served by Milind Travels across 24+ years of passenger transportation in Mumbai.",
+    "Discover the enterprise organizations and industries served by Milind Travels Private Limited across 24+ years of passenger transportation in Mumbai.",
 };
 
 export default function ClientsPage() {

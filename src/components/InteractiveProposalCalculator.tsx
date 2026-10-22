@@ -121,11 +121,10 @@ export default function InteractiveProposalCalculator() {
                     color: "var(--color-midnight-navy)",
                   }}
                 >
-                  <option value="Staff Transportation (Daily Roster)">Corporate Staff Transportation (Scheduled Roster)</option>
-                  <option value="Dedicated Fleet Management (Outsourced)">Dedicated Fleet Management (Full Outsourcing)</option>
-                  <option value="Executive & VIP Chauffeur Car Rental">Executive & VIP Chauffeur Car Rental</option>
-                  <option value="Point-to-Point & Airport Transfers">Corporate Airport & Inter-Office Transfers</option>
-                  <option value="Flexible Hiring (Hourly / Monthly / Annual)">Flexible Retainer (Monthly / Annual Contract)</option>
+                  <option value="Staff Transportation (Scheduled Daily Roster)">Staff Transportation (Scheduled Daily Roster)</option>
+                  <option value="Ad-Hoc Duty for Connected Clients (Priority Dispatch)">Ad-Hoc Duty for Connected Clients (Priority Dispatch)</option>
+                  <option value="Airport Transfers for Connected Clients (CSMIA T1/T2)">Airport Transfers for Connected Clients (CSMIA T1/T2)</option>
+                  <option value="Packages Tailored to Client Requirements (Retainer/MSA)">Packages Tailored to Client Requirements (Retainer/MSA)</option>
                 </select>
               </div>
 

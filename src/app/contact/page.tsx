@@ -8,9 +8,9 @@ import { Phone, Mail, Clock, ShieldCheck } from "lucide-react";
 import { CONTACT_INFO } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Contact Headquarters & Operations Desk | Milind Travels Mumbai",
+  title: "Contact Headquarters & Operations Desk | Milind Travels Private Limited",
   description:
-    "Contact Milind Travels at A-808, Kailas Business Park, Vikhroli West, Mumbai. Direct phone +91 92234 31020, email mumbai@milindtravels.com.",
+    "Contact Milind Travels Private Limited at A-808, Kailas Business Park, Vikhroli West, Mumbai. Direct phone +91 92234 31020, email mumbai@milindtravels.com.",
 };
 
 export default function ContactPage() {

@@ -35,22 +35,17 @@ const SERVICE_MEDIA: Record<
     fleetPills: ["13–26 Seater Shuttles", "Multi-Passenger MPVs", "Executive Sedans"],
     slaHighlight: "99.4% On-Time Shift Roster Execution",
   },
-  "fleet-management": {
+  "ad-hoc-duty": {
     image: "/images/fleet/premium-mpv.jpg",
-    fleetPills: ["Toyota Innova Crysta", "Innova Hycross", "Dedicated Chauffeur"],
-    slaHighlight: "Zero Capital Outlay • Complete Statutory Compliance",
+    fleetPills: ["Toyota Innova Crysta", "Innova Hycross", "Rapid Dispatch"],
+    slaHighlight: "Priority Standby Allocation • Zero Surge Pricing",
   },
-  "luxury-executive-rentals": {
+  "airport-transfers": {
     image: "/images/fleet/executive-sedan.jpg",
-    fleetPills: ["Mercedes-Benz E-Class", "Toyota Camry Hybrid", "VIP Chauffeur"],
-    slaHighlight: "Discreet Protocol • BOM T1/T2 Terminal Chauffeur Meet",
+    fleetPills: ["Executive Sedans", "Camry Hybrid", "Flight Tracking Meet & Assist"],
+    slaHighlight: "BOM T1 / T2 Dedicated Terminal Protocol",
   },
-  "point-to-point-transfers": {
-    image: "/images/fleet/economy-sedan.jpg",
-    fleetPills: ["Executive Sedans", "Premium MPVs", "Airport Flight Tracking"],
-    slaHighlight: "Zero Surge Pricing • Consolidated Corporate Billing",
-  },
-  "flexible-hiring-models": {
+  "custom-packages": {
     image: "/images/hero-cinematic.jpg",
     fleetPills: ["Hourly Packages", "Monthly Retainers", "Annual MSAs"],
     slaHighlight: "Tailored SLAs • Guaranteed Standby Fleet Buffers",

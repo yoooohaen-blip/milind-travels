@@ -9,9 +9,9 @@ import { ShieldCheck, UserCheck, Wrench, PhoneCall, ArrowRight, CheckCircle2 } f
 import { CONTACT_INFO } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Safety Governance & Operations Compliance | Milind Travels Mumbai",
+  title: "Safety Governance & Operations Compliance | Milind Travels Private Limited",
   description:
-    "Learn about Milind Travels rigorous chauffeur vetting, 100% commercial vehicle compliance, and dedicated night-shift female employee safety protocols.",
+    "Learn about Milind Travels Private Limited rigorous chauffeur vetting, 100% commercial vehicle compliance, and dedicated night-shift female employee safety protocols.",
 };
 
 export default function OperationsPage() {

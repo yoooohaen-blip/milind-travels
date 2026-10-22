@@ -386,11 +386,10 @@ export default function ContactSection() {
                       fontSize: "0.92rem",
                     }}
                   >
-                    <option value="Corporate Staff Transportation">Corporate Staff Transportation (Shift Rosters)</option>
-                    <option value="Dedicated Fleet Management">Dedicated Fleet Management (Outsourced Fleet)</option>
-                    <option value="Executive & Luxury Car Rentals">Executive & Luxury Car Rentals (Leadership)</option>
-                    <option value="Airport & Point-to-Point Transfers">Airport & Corporate Transfers</option>
-                    <option value="Flexible Hiring (Hourly / Monthly)">Monthly / Annual Vehicle Retainer</option>
+                    <option value="Staff Transportation">Staff Transportation (Daily Shift Rosters)</option>
+                    <option value="Ad-Hoc Duty for Connected Clients">Ad-Hoc Duty for Connected Clients (Priority Dispatch)</option>
+                    <option value="Airport Transfers for Connected Clients">Airport Transfers for Connected Clients (CSMIA T1/T2)</option>
+                    <option value="Packages Tailored to Client Requirements">Packages Tailored to Client Requirements (Retainers / MSAs)</option>
                   </select>
                 </div>
 

@@ -140,7 +140,7 @@ export default function Footer() {
 
           {/* Column 4: Commercial HQ Address & Phone */}
           <div className="spyker-meta-col">
-            <strong className="spyker-meta-title">Milind Travels HQ</strong>
+            <strong className="spyker-meta-title">{SITE_METADATA.legalName}</strong>
             <p className="spyker-meta-address">
               A-808, Kailas Business Park, Veer Savarkar Road, Park Site, Vikhroli West, Mumbai - 400079
             </p>
@@ -152,10 +152,10 @@ export default function Footer() {
           {/* Column 5: Copyright & Registered Office */}
           <div className="spyker-meta-col spyker-col-right">
             <p className="spyker-copyright">
-              © 2000–2026 Milind Travels. All Rights Reserved.
+              © 2000–2026 {SITE_METADATA.legalName}. All Rights Reserved.
             </p>
             <p className="spyker-reg-office">
-              Reg. Office: 1/3, Surju Yadav Niwas, Asalfa Village, Ghatkopar West, Mumbai - 400084
+              CIN: {SITE_METADATA.cin} • Reg. Office: Kailas Business Park, Vikhroli West, Mumbai - 400079
             </p>
             <button
               onClick={scrollToTop}

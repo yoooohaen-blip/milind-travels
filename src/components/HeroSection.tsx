@@ -43,15 +43,15 @@ export default function HeroSection() {
             <Image
               src="/images/brand/milind-logo-white-2x.png"
               alt="Milind Travels Mumbai"
-              width={260}
-              height={90}
+              width={500}
+              height={175}
               priority
-              sizes="260px"
+              sizes="(max-width: 768px) 320px, 500px"
               style={{
                 objectFit: "contain",
                 width: "auto",
-                height: "clamp(52px, 7vw, 76px)",
-                filter: "drop-shadow(0 4px 24px rgba(199, 166, 120, 0.45)) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.8))",
+                height: "clamp(95px, 13vw, 160px)",
+                filter: "drop-shadow(0 6px 30px rgba(199, 166, 120, 0.5)) drop-shadow(0 3px 12px rgba(0, 0, 0, 0.85))",
               }}
             />
           </div>
@@ -243,8 +243,8 @@ export default function HeroSection() {
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: clamp(1.25rem, 2.5vw, 1.85rem);
-          min-height: clamp(52px, 7vw, 76px);
+          margin-bottom: clamp(1.5rem, 2.8vw, 2.25rem);
+          min-height: clamp(95px, 13vw, 160px);
           will-change: transform, opacity;
           transition: opacity 0.3s ease;
         }

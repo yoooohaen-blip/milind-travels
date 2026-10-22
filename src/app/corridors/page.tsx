@@ -9,9 +9,9 @@ import { Navigation, MapPin, ArrowRight } from "lucide-react";
 import { MUMBAI_CORRIDORS, CONTACT_INFO } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Mumbai & MMR Corporate Corridors | Milind Travels",
+  title: "Mumbai & MMR Corporate Corridors | Milind Travels Private Limited",
   description:
-    "Explore Milind Travels corporate transport coverage across Mumbai MMR: Vikhroli, Powai, BKC, Lower Parel, Andheri SEEPZ, Airoli, and Thane.",
+    "Explore Milind Travels Private Limited corporate transport coverage across Mumbai MMR: Vikhroli, Powai, BKC, Lower Parel, Andheri SEEPZ, Airoli, and Thane.",
 };
 
 export default function CorridorsPage() {
