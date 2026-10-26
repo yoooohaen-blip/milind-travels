@@ -488,9 +488,12 @@ export default function HomeServicesShowcase() {
           <div>
             <strong
               style={{
-                fontSize: "0.96rem",
+                fontFamily: "var(--font-heading)",
+                fontSize: "1.02rem",
                 color: "var(--color-midnight-navy)",
                 fontWeight: 700,
+                letterSpacing: "-0.015em",
+                display: "block",
               }}
             >
               {activeService.title}
