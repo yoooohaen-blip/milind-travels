@@ -486,18 +486,6 @@ export default function HomeServicesShowcase() {
             {getServiceIcon(activeService.icon, 20)}
           </div>
           <div>
-            <span
-              style={{
-                fontSize: "0.68rem",
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.12em",
-                color: "var(--color-slate-gray)",
-                display: "block",
-              }}
-            >
-              Selected Corporate Vertical ({activeService.index} of 05)
-            </span>
             <strong
               style={{
                 fontSize: "0.96rem",
@@ -656,19 +644,6 @@ export default function HomeServicesShowcase() {
 
           {/* Mobile Content */}
           <div style={{ padding: "1.75rem 1.5rem" }}>
-            <span
-              style={{
-                fontSize: "0.72rem",
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                color: "var(--color-champagne)",
-                display: "block",
-                marginBottom: "0.25rem",
-              }}
-            >
-              Vertical {activeService.index} of 05
-            </span>
             <h3
               style={{
                 fontSize: "1.45rem",
