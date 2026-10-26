@@ -178,48 +178,48 @@ export default function HomeIntroDirectorsSection() {
           </div>
         </div>
 
-        {/* 2 Compact Executive Director Cards */}
-        <div className="grid-12" style={{ alignItems: "stretch", gap: "1.25rem" }}>
+        {/* 2 Clean & Uncluttered Executive Director Cards */}
+        <div className="grid-12" style={{ alignItems: "stretch", gap: "1.5rem" }}>
           {/* Card 1: Milind Prabhakar Phodkar */}
           <div
             className="monumental-director-panel"
             style={{
               gridColumn: "span 6",
-              backgroundColor: "rgba(12, 24, 36, 0.75)",
-              border: "1px solid rgba(199, 166, 120, 0.28)",
+              backgroundColor: "rgba(10, 22, 34, 0.75)",
+              border: "1px solid rgba(199, 166, 120, 0.22)",
               borderRadius: "14px",
-              padding: "1.1rem 1.35rem",
+              padding: "1.35rem 1.6rem",
               position: "relative",
-              backdropFilter: "blur(16px)",
-              WebkitBackdropFilter: "blur(16px)",
-              boxShadow: "0 10px 28px rgba(0, 0, 0, 0.4)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              boxShadow: "0 12px 32px rgba(0, 0, 0, 0.35)",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              gap: "0.75rem",
+              gap: "0.85rem",
               transition: "transform 0.25s ease, border-color 0.25s ease",
             }}
           >
-            {/* Top: Insignia Seal + Identity */}
-            <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
+            {/* Top: Insignia Seal + Clean Identity */}
+            <div style={{ display: "flex", alignItems: "center", gap: "0.95rem" }}>
               <div
                 style={{
-                  width: "42px",
-                  height: "42px",
-                  borderRadius: "10px",
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "11px",
                   background: "linear-gradient(135deg, #132435 0%, #081521 100%)",
                   border: "1.5px solid var(--color-champagne)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   flexShrink: 0,
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.35)",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.4)",
                 }}
               >
                 <span
                   style={{
                     fontFamily: "var(--font-heading)",
-                    fontSize: "0.95rem",
+                    fontSize: "0.98rem",
                     fontWeight: 800,
                     color: "var(--color-champagne)",
                     letterSpacing: "0.04em",
@@ -230,61 +230,56 @@ export default function HomeIntroDirectorsSection() {
               </div>
 
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div
-                  style={{
-                    fontSize: "0.64rem",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    color: "var(--color-champagne)",
-                    marginBottom: "0.1rem",
-                  }}
-                >
-                  Managing Director • 24+ Yrs Leadership
-                </div>
                 <h4
                   style={{
                     fontFamily: "var(--font-heading)",
-                    fontSize: "1.08rem",
+                    fontSize: "1.15rem",
                     fontWeight: 700,
                     color: "#FFFFFF",
                     margin: 0,
-                    lineHeight: 1.2,
+                    lineHeight: 1.25,
                   }}
                 >
                   Milind Prabhakar Phodkar
                 </h4>
-                <div style={{ fontSize: "0.74rem", color: "var(--color-champagne-light)", marginTop: "0.1rem" }}>
-                  Founder & Managing Director
+                <div
+                  style={{
+                    fontSize: "0.78rem",
+                    color: "var(--color-champagne-light)",
+                    fontWeight: 600,
+                    marginTop: "0.2rem",
+                  }}
+                >
+                  Founder & Managing Director • 24+ Years Leadership
                 </div>
               </div>
             </div>
 
-            {/* Middle: Brief Executive Mandate */}
+            {/* Middle: Clean Executive Summary */}
             <p
               style={{
-                fontSize: "0.78rem",
+                fontSize: "0.84rem",
                 color: "#BAC7D3",
-                lineHeight: 1.5,
+                lineHeight: 1.6,
                 margin: 0,
               }}
             >
-              Founded Milind Travels in 2000. Steers corporate governance, institutional MSAs, volume enterprise tariffs, and passenger safety compliance across Mumbai.
+              Founded Milind Travels in 2000. Steers institutional enterprise MSAs, statutory corporate governance, and passenger safety compliance across Mumbai.
             </p>
 
-            {/* Bottom: Direct Contact Link */}
+            {/* Bottom: Minimal Contact & Link */}
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                paddingTop: "0.6rem",
+                paddingTop: "0.75rem",
                 borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                fontSize: "0.72rem",
+                fontSize: "0.75rem",
               }}
             >
               <span style={{ color: "#8E9EAD" }}>
-                <span style={{ color: "var(--color-champagne)" }}>Direct:</span> mumbai@milindtravels.com
+                <span style={{ color: "var(--color-champagne)", fontWeight: 600 }}>Direct:</span> mumbai@milindtravels.com
               </span>
               <Link
                 href="/contact"
@@ -295,10 +290,11 @@ export default function HomeIntroDirectorsSection() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "0.25rem",
+                  transition: "color 0.2s ease",
                 }}
               >
-                <span>Consultation</span>
-                <ChevronRight size={12} />
+                <span>Contact Office</span>
+                <ChevronRight size={13} />
               </Link>
             </div>
           </div>
@@ -308,41 +304,41 @@ export default function HomeIntroDirectorsSection() {
             className="monumental-director-panel"
             style={{
               gridColumn: "span 6",
-              backgroundColor: "rgba(12, 24, 36, 0.75)",
-              border: "1px solid rgba(199, 166, 120, 0.28)",
+              backgroundColor: "rgba(10, 22, 34, 0.75)",
+              border: "1px solid rgba(199, 166, 120, 0.22)",
               borderRadius: "14px",
-              padding: "1.1rem 1.35rem",
+              padding: "1.35rem 1.6rem",
               position: "relative",
-              backdropFilter: "blur(16px)",
-              WebkitBackdropFilter: "blur(16px)",
-              boxShadow: "0 10px 28px rgba(0, 0, 0, 0.4)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              boxShadow: "0 12px 32px rgba(0, 0, 0, 0.35)",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              gap: "0.75rem",
+              gap: "0.85rem",
               transition: "transform 0.25s ease, border-color 0.25s ease",
             }}
           >
-            {/* Top: Insignia Seal + Identity */}
-            <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
+            {/* Top: Insignia Seal + Clean Identity */}
+            <div style={{ display: "flex", alignItems: "center", gap: "0.95rem" }}>
               <div
                 style={{
-                  width: "42px",
-                  height: "42px",
-                  borderRadius: "10px",
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "11px",
                   background: "linear-gradient(135deg, #132435 0%, #081521 100%)",
                   border: "1.5px solid var(--color-champagne)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   flexShrink: 0,
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.35)",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.4)",
                 }}
               >
                 <span
                   style={{
                     fontFamily: "var(--font-heading)",
-                    fontSize: "0.95rem",
+                    fontSize: "0.98rem",
                     fontWeight: 800,
                     color: "var(--color-champagne)",
                     letterSpacing: "0.04em",
@@ -353,61 +349,56 @@ export default function HomeIntroDirectorsSection() {
               </div>
 
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div
-                  style={{
-                    fontSize: "0.64rem",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    color: "var(--color-champagne)",
-                    marginBottom: "0.1rem",
-                  }}
-                >
-                  Director of Operations • Fleet & Route Tech
-                </div>
                 <h4
                   style={{
                     fontFamily: "var(--font-heading)",
-                    fontSize: "1.08rem",
+                    fontSize: "1.15rem",
                     fontWeight: 700,
                     color: "#FFFFFF",
                     margin: 0,
-                    lineHeight: 1.2,
+                    lineHeight: 1.25,
                   }}
                 >
                   Sarvesh Milind Phodkar
                 </h4>
-                <div style={{ fontSize: "0.74rem", color: "var(--color-champagne-light)", marginTop: "0.1rem" }}>
+                <div
+                  style={{
+                    fontSize: "0.78rem",
+                    color: "var(--color-champagne-light)",
+                    fontWeight: 600,
+                    marginTop: "0.2rem",
+                  }}
+                >
                   Director — Operations & Fleet Technology
                 </div>
               </div>
             </div>
 
-            {/* Middle: Brief Executive Mandate */}
+            {/* Middle: Clean Executive Summary */}
             <p
               style={{
-                fontSize: "0.78rem",
+                fontSize: "0.84rem",
                 color: "#BAC7D3",
-                lineHeight: 1.5,
+                lineHeight: 1.6,
                 margin: 0,
               }}
             >
-              Directs 24/7 corporate fleet route execution, driver compliance frameworks, ad-hoc client dispatch, and connected client logistics technology.
+              Directs 24/7 corporate fleet route execution, automated shift rosters, priority ad-hoc client dispatch, and driver compliance frameworks across MMR.
             </p>
 
-            {/* Bottom: Hub Location & Action Link */}
+            {/* Bottom: Minimal Hub & Link */}
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                paddingTop: "0.6rem",
+                paddingTop: "0.75rem",
                 borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                fontSize: "0.72rem",
+                fontSize: "0.75rem",
               }}
             >
               <span style={{ color: "#8E9EAD" }}>
-                <span style={{ color: "var(--color-champagne)" }}>Hub:</span> Kailas Business Park, Vikhroli (W)
+                <span style={{ color: "var(--color-champagne)", fontWeight: 600 }}>Command Hub:</span> Kailas Business Park, Vikhroli (W)
               </span>
               <Link
                 href="/calculator"
@@ -418,10 +409,11 @@ export default function HomeIntroDirectorsSection() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "0.25rem",
+                  transition: "color 0.2s ease",
                 }}
               >
-                <span>Proposal</span>
-                <ChevronRight size={12} />
+                <span>Plan Proposal</span>
+                <ChevronRight size={13} />
               </Link>
             </div>
           </div>
@@ -432,7 +424,7 @@ export default function HomeIntroDirectorsSection() {
             ================================================================= */}
         <div
           style={{
-            marginTop: "3.5rem",
+            marginTop: "2.25rem",
             backgroundColor: "rgba(255, 255, 255, 0.02)",
             border: "1px solid rgba(255, 255, 255, 0.07)",
             borderRadius: "14px",
