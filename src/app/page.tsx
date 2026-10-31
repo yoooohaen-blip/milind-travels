@@ -58,8 +58,6 @@ export default function HomePage() {
       {/* 1. Cinematic Hero Section */}
       <HeroSection />
 
-      {/* 2. Introduction of Milind Travels Private Limited & Board of Directors */}
-      <HomeIntroDirectorsSection />
 
       {/* 2. Strategic Difference Teaser (Ad-Hoc vs Managed Enterprise Mobility) with Glass Bubbles */}
       <section
@@ -442,7 +440,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Interactive Calculator Callout Banner */}
+      {/* 5. Executive Leadership & Board of Directors */}
+      <HomeIntroDirectorsSection />
+
+      {/* 6. Interactive Calculator Callout Banner */}
       <section className="section-py surface-light" style={{ borderBottom: "1px solid rgba(8, 21, 33, 0.08)" }}>
         <div className="site-container">
           <div
@@ -518,7 +519,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Client Trust Strip with Infinite Auto-Scrolling (Only Logos) */}
+      {/* 7. Client Trust Strip with Infinite Auto-Scrolling (Only Logos) */}
       <section className="section-py surface-light" style={{ borderBottom: "1px solid rgba(8, 21, 33, 0.08)", overflow: "hidden" }}>
         <div className="site-container">
           <div
