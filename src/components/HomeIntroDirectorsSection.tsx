@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -200,33 +201,34 @@ export default function HomeIntroDirectorsSection() {
               transition: "transform 0.25s ease, border-color 0.25s ease",
             }}
           >
-            {/* Top: Insignia Seal + Clean Identity */}
-            <div style={{ display: "flex", alignItems: "center", gap: "0.95rem" }}>
+            {/* Top: Executive Portrait + Clean Identity */}
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
               <div
                 style={{
-                  width: "44px",
-                  height: "44px",
-                  borderRadius: "11px",
-                  background: "linear-gradient(135deg, #132435 0%, #081521 100%)",
-                  border: "1.5px solid var(--color-champagne)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "14px",
+                  overflow: "hidden",
+                  border: "2px solid var(--color-champagne)",
+                  boxShadow: "0 4px 14px rgba(0, 0, 0, 0.45)",
                   flexShrink: 0,
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.4)",
+                  position: "relative",
+                  backgroundColor: "#0A1622",
                 }}
               >
-                <span
+                <Image
+                  src="/images/directors/milind-phodkar.jpg"
+                  alt="Milind Prabhakar Phodkar — Founder & Managing Director"
+                  width={112}
+                  height={112}
                   style={{
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "0.98rem",
-                    fontWeight: 800,
-                    color: "var(--color-champagne)",
-                    letterSpacing: "0.04em",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center 15%",
                   }}
-                >
-                  MP
-                </span>
+                  priority
+                />
               </div>
 
               <div style={{ flex: 1, minWidth: 0 }}>
@@ -320,14 +322,14 @@ export default function HomeIntroDirectorsSection() {
             }}
           >
             {/* Top: Insignia Seal + Clean Identity */}
-            <div style={{ display: "flex", alignItems: "center", gap: "0.95rem" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
               <div
                 style={{
-                  width: "44px",
-                  height: "44px",
-                  borderRadius: "11px",
+                  width: "56px",
+                  height: "56px",
+                  borderRadius: "14px",
                   background: "linear-gradient(135deg, #132435 0%, #081521 100%)",
-                  border: "1.5px solid var(--color-champagne)",
+                  border: "1.5px solid rgba(199, 166, 120, 0.5)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -338,7 +340,7 @@ export default function HomeIntroDirectorsSection() {
                 <span
                   style={{
                     fontFamily: "var(--font-heading)",
-                    fontSize: "0.98rem",
+                    fontSize: "1.05rem",
                     fontWeight: 800,
                     color: "var(--color-champagne)",
                     letterSpacing: "0.04em",

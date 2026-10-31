@@ -128,6 +128,7 @@ export const DIRECTORS: CompanyDirector[] = [
     name: "Milind Prabhakar Phodkar",
     role: "Founder & Managing Director",
     title: "Director",
+    imageSrc: "/images/directors/milind-phodkar.jpg",
     experience: "24+ Years of Industry Leadership",
     bio: "Founded Milind Travels in 2000, building enduring passenger mobility partnerships with leading multinationals, IT enterprises, and financial institutions across Mumbai. Oversees corporate governance, strategic fleet partnerships, and our commitment to operational integrity.",
     focus: "Strategic Corporate MSAs, Governance & Enterprise Partnerships",
