@@ -23,31 +23,11 @@ interface PillarData {
 }
 
 const PILLAR_DETAILS: Record<string, PillarData> = {
-  punctuality: {
-    id: "punctuality",
-    metric: "99.2%",
-    metricLabel: "On-Time Dispatch SLA",
-    category: "Pillar 01 • Route Governance",
-    points: [
-      {
-        title: "Dynamic Chokepoint Scouting",
-        desc: "Advance route reconnaissance for ongoing metro construction on JVLR, WEH, and EEH to bypass bottlenecks.",
-      },
-      {
-        title: "45-Minute Pre-Shift Staging Gate",
-        desc: "Chauffeur reporting, breathalyzer confirmation, and vehicle sanitation verified 45 minutes prior to scheduled pickup.",
-      },
-      {
-        title: "Cluster Standby Fleet Staging",
-        desc: "Hot-standby replacement vehicles stationed near BKC, Vikhroli, Andheri SEEPZ, and Airoli for instant redundancy.",
-      },
-    ],
-  },
   compliance: {
     id: "compliance",
     metric: "100%",
     metricLabel: "Statutory RTO Compliance",
-    category: "Pillar 02 • Legal & Mechanical",
+    category: "Pillar 01 • Legal & Mechanical",
     points: [
       {
         title: "100% Commercial Permits & Insurance",
@@ -67,7 +47,7 @@ const PILLAR_DETAILS: Record<string, PillarData> = {
     id: "chauffeurs",
     metric: "5-Point",
     metricLabel: "Verification Standard",
-    category: "Pillar 03 • Human Capital",
+    category: "Pillar 02 • Human Capital",
     points: [
       {
         title: "Law Enforcement & Address Verification",
@@ -86,9 +66,13 @@ const PILLAR_DETAILS: Record<string, PillarData> = {
   "safety-protocols": {
     id: "safety-protocols",
     metric: "24/7",
-    metricLabel: "Active Operations Command",
-    category: "Pillar 04 • Passenger Protection",
+    metricLabel: "On-Site Supervision",
+    category: "Pillar 03 • Passenger Protection",
     points: [
+      {
+        title: "On-Site Supervisors for Live Tracking",
+        desc: "We deploy dedicated supervisors on each client site to monitor shift rosters, vehicle dispatch, and live track operations.",
+      },
       {
         title: "Residential Gate Illumination & Safe Entry",
         desc: "Chauffeur remains stationary with headlamps illuminating the residential gate until the female passenger is safely indoors.",
@@ -96,10 +80,6 @@ const PILLAR_DETAILS: Record<string, PillarData> = {
       {
         title: "No Single Female Passenger Commute Rule",
         desc: "Female employees are never picked up first or dropped off last unescorted during night shift rotations (8 PM – 6 AM).",
-      },
-      {
-        title: "Dedicated Vikhroli Control Room Hotline",
-        desc: "Live route tracking and instant direct-line telephone access for facility managers and commuting employees 24/7.",
       },
     ],
   },
@@ -169,12 +149,12 @@ export default function OperationalFrameworkSection() {
             }}
           >
             Corporate passenger transportation demands zero compromise. Our institutional governance combines
-            dynamic suburban route planning, 5-point chauffeur background scrutiny, 100% commercial RTO compliance,
-            and dedicated night-shift female employee escort protocols.
+            100% commercial RTO compliance, 5-point chauffeur background scrutiny, dedicated on-site supervisors
+            for live tracking, and strict night-shift female employee escort protocols.
           </p>
         </div>
 
-        {/* 4 Clean White Governance Pillar Cards */}
+        {/* 3 Clean White Governance Pillar Cards */}
         <div className="grid-12" style={{ gap: "2rem", alignItems: "stretch" }}>
           {OPERATIONAL_PILLARS.map((pillar, idx) => {
             const data = PILLAR_DETAILS[pillar.id] || {
@@ -189,7 +169,7 @@ export default function OperationalFrameworkSection() {
               <div
                 key={pillar.id}
                 style={{
-                  gridColumn: "span 6",
+                  gridColumn: "span 4",
                   backgroundColor: "#FFFFFF",
                   borderRadius: "16px",
                   border: "1px solid rgba(8, 21, 33, 0.09)",

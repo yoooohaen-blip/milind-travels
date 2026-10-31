@@ -199,11 +199,10 @@ export default function InteractiveProposalCalculator() {
                       color: "var(--color-midnight-navy)",
                     }}
                   >
-                    <option value="Premium Multi-Passenger MPV (Innova Class)">Premium MPVs (Innova Class)</option>
-                    <option value="Executive Luxury Sedans (Camry / Mercedes)">Executive Sedans (Camry / Luxury)</option>
-                    <option value="Corporate Minibus / Coach (13-26 Seater)">Corporate Shuttles (13-26 Seater)</option>
-                    <option value="Economy Corporate Cabs (Dzire Class)">Economy Staff Cabs (Sedans)</option>
-                    <option value="Mixed Multi-Tier Corporate Fleet">Mixed Multi-Tier Balanced Fleet</option>
+                    <option value="Economy Corporate Cabs (Dzire Class)">Economy Staff Cabs (Dzire / Aura)</option>
+                    <option value="Premium Multi-Passenger MPV (Innova Class)">Premium MPVs &amp; SUVs (Innova Class)</option>
+                    <option value="Corporate Minibus / Coach (13-26 Seater)">Corporate Shuttles &amp; Minibuses (13-26 Seater)</option>
+                    <option value="Mixed Multi-Tier Corporate Fleet">Diverse Corporate Fleet (Sedans, SUVs, Shuttles)</option>
                   </select>
                 </div>
 

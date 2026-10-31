@@ -7,8 +7,9 @@ import { FLEET_TIERS, CONTACT_INFO } from "@/data/content";
 import { ArrowRight } from "lucide-react";
 
 const SHORT_LABELS: Record<string, string> = {
-  "executive-sedan": "Executive Sedans",
   "premium-mpv": "Premium MPVs",
+  "economy-staff-cab": "Economy Cabs",
+  "workforce-coach": "Corporate Shuttles",
 };
 
 const getShortLabel = (id: string, category: string) =>
@@ -64,7 +65,7 @@ export default function FleetShowcaseSection() {
     >
       {/* Intro */}
       <div className="site-container" style={{ paddingTop: "clamp(4rem, 8vw, 6rem)", paddingBottom: "1rem" }}>
-        <div style={{ maxWidth: "720px" }}>
+        <div style={{ maxWidth: "780px" }}>
           <span
             style={{
               display: "block",
@@ -79,10 +80,10 @@ export default function FleetShowcaseSection() {
             Mumbai Commercial Fleet
           </span>
           <h2 className="text-section-title" style={{ color: "#FFFFFF", marginBottom: "0.75rem", lineHeight: 1.2 }}>
-            Four Corporate Fleet Tiers.
+            Three Corporate Fleet Tiers.
           </h2>
           <p className="text-lead" style={{ color: "#C8D3DB", marginBottom: 0 }}>
-            Scroll to move through each tier — from executive sedans to daily commute cabs.
+            Operating 80+ owned vehicles and approximately 500 attached vehicles, enabling us to cater to a wide range of corporate transportation requirements across Mumbai.
           </p>
         </div>
       </div>

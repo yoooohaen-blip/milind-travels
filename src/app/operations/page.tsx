@@ -57,8 +57,8 @@ export default function OperationsPage() {
                   desc: "Chauffeurs are instructed to remain parked with headlamps illuminating the residential entrance until the employee is safely inside the premises gate.",
                 },
                 {
-                  title: "Dedicated Night Shift Supervisors",
-                  desc: "Our Vikhroli control room actively monitors trip check-ins, route deviations, and drop-off verifications between 8:00 PM and 6:00 AM.",
+                  title: "Dedicated On-Site Client Supervisors",
+                  desc: "We have dedicated supervisors stationed on each client site to monitor trip check-ins, route tracking, and live drop-off verifications.",
                 },
               ].map((item) => (
                 <div

@@ -35,23 +35,23 @@ const SERVICE_MEDIA: Record<
 > = {
   "staff-transportation": {
     image: "/images/fleet/corporate-shuttle.jpg",
-    fleetPills: ["13–26 Seater Shuttles", "Multi-Passenger MPVs", "Executive Sedans"],
-    slaHighlight: "99.4% On-Time Shift Roster Execution",
+    fleetPills: ["13–26 Seater Shuttles", "Multi-Passenger MPVs", "Sedans & Hatchbacks"],
+    slaHighlight: "24×7 Operational Capabilities • Rotational & Night Shifts",
   },
   "ad-hoc-duty": {
     image: "/images/fleet/premium-mpv.jpg",
-    fleetPills: ["Toyota Innova Crysta", "Innova Hycross", "Rapid Dispatch"],
-    slaHighlight: "Priority Standby Allocation • Zero Surge Pricing",
+    fleetPills: ["Toyota Innova Crysta / Hycross", "Corporate Sedans", "Minibuses"],
+    slaHighlight: "Corporate Events • Visits • Outstation • Airport Transfers",
   },
   "airport-transfers": {
-    image: "/images/fleet/executive-sedan.jpg",
-    fleetPills: ["Executive Sedans", "Camry Hybrid", "Flight Tracking Meet & Assist"],
-    slaHighlight: "BOM T1 / T2 Dedicated Terminal Protocol",
+    image: "/images/fleet/economy-sedan.jpg",
+    fleetPills: ["Comfort Sedans", "Premium SUVs", "Terminal Meet & Assist"],
+    slaHighlight: "Timely Pickup & Drop for Employees & Guests",
   },
   "custom-packages": {
     image: "/images/hero-cinematic.jpg",
-    fleetPills: ["Hourly Packages", "Monthly Retainers", "Annual MSAs"],
-    slaHighlight: "Tailored SLAs • Guaranteed Standby Fleet Buffers",
+    fleetPills: ["Diverse Fleet Range", "Dedicated Site Supervisors", "Consolidated Invoicing"],
+    slaHighlight: "Tailored Corporate Master Service Agreements (MSAs)",
   },
 };
 
@@ -158,8 +158,7 @@ export default function ServicesSection() {
           </h2>
 
           <p className="text-lead" style={{ color: "var(--text-dark-secondary)" }}>
-            Explore our four core contractual transit models—from synchronized 24/7 staff rosters
-            and turnkey outsourced fleet administration to VIP C-suite car rentals across Mumbai & MMR.
+            Milind Travels Private Limited offers reliable, flexible, and efficient transportation solutions tailored to the diverse requirements of corporate clients.
           </p>
         </div>
 
@@ -220,7 +219,7 @@ export default function ServicesSection() {
                       color: "var(--color-midnight-navy)",
                     }}
                   >
-                    4 Specialized Verticals
+                    Corporate Solutions
                   </strong>
                 </div>
 
@@ -240,7 +239,7 @@ export default function ServicesSection() {
                 >
                   <span>0{activeIndex + 1}</span>
                   <span style={{ color: "#81909A" }}>/</span>
-                  <span style={{ color: "var(--color-midnight-navy)" }}>04</span>
+                  <span style={{ color: "var(--color-midnight-navy)" }}>0{CORE_SERVICES.length}</span>
                 </div>
               </div>
 
@@ -363,7 +362,7 @@ export default function ServicesSection() {
           >
             {CORE_SERVICES.map((service, idx) => {
               const media = SERVICE_MEDIA[service.id] || {
-                image: "/images/fleet/executive-sedan.jpg",
+                image: "/images/fleet/premium-mpv.jpg",
                 fleetPills: ["Corporate Sedans", "Premium MPVs"],
                 slaHighlight: "24/7 Enterprise Reliability Standard",
               };

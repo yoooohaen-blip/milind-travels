@@ -11,7 +11,7 @@ import { FLEET_TIERS } from "@/data/content";
 export const metadata: Metadata = {
   title: "Corporate Fleet Architecture & Vehicles | Milind Travels Private Limited",
   description:
-    "Explore Milind Travels Private Limited corporate fleet tiers: executive sedans, premium multi-passenger MPVs, workforce shuttles, and economy staff commute cabs.",
+    "Explore Milind Travels Private Limited corporate fleet tiers: 80+ owned vehicles and ~500 attached vehicles spanning hatchbacks, sedans, SUVs, and corporate shuttles.",
 };
 
 export default function FleetPage() {
@@ -22,7 +22,7 @@ export default function FleetPage() {
       <PageHeader
         eyebrow="MUMBAI ENTERPRISE FLEET"
         title="Fleet Architecture & Specifications"
-        subtitle="Meticulously maintained, fully air-conditioned, and commercially compliant passenger vehicles engineered for Mumbai’s corporate commute and executive travel."
+        subtitle="Operating 80+ owned vehicles and approximately 500 attached vehicles spanning hatchbacks, sedans, SUVs, and corporate shuttles engineered for corporate commute and executive travel."
       />
 
       {/* Main Interactive Fleet Filter Showcase */}

@@ -111,7 +111,7 @@ export default function HomeIntroDirectorsSection() {
               fontWeight: 400,
             }}
           >
-            Founded in 2000, Milind Travels emerged alongside Mumbai’s rapid corporate expansion, delivering disciplined passenger mobility to multinational corporations, IT campuses, and financial institutions. Now incorporated as <strong>{SITE_METADATA.legalName}</strong> (CIN: {SITE_METADATA.cin}), our central operations base at <strong>A-808, Kailas Business Park in Vikhroli West</strong> maintains daily executive oversight across all scheduled employee commutes, priority ad-hoc duties, and airport transfers.
+            Established in April 2000 as a proprietorship firm with just one vehicle providing cab services to call centres and BPO companies, Milind Travels has steadily expanded over 24+ years. In August 2025, the business transitioned into <strong>{SITE_METADATA.legalName}</strong> (CIN: {SITE_METADATA.cin}). Today, we operate a diverse fleet comprising <strong>80+ owned vehicles and approximately 500 attached vehicles</strong> (hatchbacks, sedans, SUVs, and premium vehicles), backed by dedicated supervisors on each client site to monitor and live track across Mumbai's Western, Eastern, and Harbour Zones.
           </p>
         </div>
 
@@ -400,7 +400,7 @@ export default function HomeIntroDirectorsSection() {
               }}
             >
               <span style={{ color: "#8E9EAD" }}>
-                <span style={{ color: "var(--color-champagne)", fontWeight: 600 }}>Command Hub:</span> Kailas Business Park, Vikhroli (W)
+                <span style={{ color: "var(--color-champagne)", fontWeight: 600 }}>Corporate Office:</span> Kailas Business Park, Vikhroli (W)
               </span>
               <Link
                 href="/calculator"

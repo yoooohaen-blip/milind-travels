@@ -11,7 +11,7 @@ import { CORE_SERVICES } from "@/data/content";
 export const metadata: Metadata = {
   title: "Corporate Transportation Services | Milind Travels Private Limited",
   description:
-    "Explore our enterprise corporate mobility solutions: Staff Transportation, Ad-Hoc Duty for Connected Clients, Airport Transfers, and Customized Packages tailored to client requirements.",
+    "Milind Travels Private Limited offers reliable, flexible, and efficient transportation solutions: Employee / Staff Transportation and Ad Hoc Transportation Services (Corporate Events, Corporate Visits, Outstation Travel, Airport Transfers).",
 };
 
 export default function ServicesPage() {
@@ -22,7 +22,7 @@ export default function ServicesPage() {
       <PageHeader
         eyebrow="ENTERPRISE MOBILITY PORTFOLIO"
         title="Corporate Transportation & Fleet Services"
-        subtitle="End-to-end staff transportation, prioritized ad-hoc duty for connected clients, punctual CSMIA airport transfers, and customized packages tailored to your organization’s exact operational requirements."
+        subtitle="Milind Travels Private Limited offers reliable, flexible, and efficient transportation solutions tailored to the diverse requirements of corporate clients — from 24×7 Employee & Staff Transportation to flexible on-demand Ad Hoc Services."
       />
 
       {/* Main Interactive Services Component */}

@@ -344,7 +344,7 @@ export default function HomePage() {
             </div>
 
             <Link href="/services" className="btn btn-navy">
-              <span>View All 4 Services</span>
+              <span>View All Services</span>
               <ArrowRight size={15} />
             </Link>
           </div>
@@ -387,7 +387,7 @@ export default function HomePage() {
                 key={tier.id}
                 className="card-dark"
                 style={{
-                  gridColumn: "span 3",
+                  gridColumn: "span 4",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",

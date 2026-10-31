@@ -18,8 +18,7 @@ export default function AboutHeritageSection() {
           </h2>
 
           <p className="text-lead" style={{ color: "#C8D3DB" }}>
-            Established in 2000, Milind Travels grew alongside Mumbai’s IT, financial services, and BPO sectors,
-            becoming a dependable passenger logistics partner for organizations requiring uninterrupted operational transport.
+            Established in April 2000 as a proprietorship firm with just one vehicle, Milind Travels began providing cab services to call centres and BPO companies, growing into an enterprise partner operating 80+ owned and ~500 attached vehicles.
           </p>
         </div>
 
@@ -35,7 +34,7 @@ export default function AboutHeritageSection() {
                   lineHeight: 1.7,
                 }}
               >
-                Over 24+ years of continuous service, Milind Travels transitioned from individual passenger transport into an integrated corporate fleet logistics partner. Operating from Kailas Business Park, Vikhroli West, our central headquarters coordinates rapid access across BKC, Powai, Andheri SEEPZ, Lower Parel, and the Navi Mumbai tech corridors.
+                Established in April 2000 as a proprietorship firm, Milind Travels began its journey with just one vehicle, providing cab services to call centres and BPO companies. Over the years, through our commitment to reliable service, operational excellence, and customer satisfaction, we have steadily expanded our business and client base.
               </p>
               <p
                 style={{
@@ -44,7 +43,7 @@ export default function AboutHeritageSection() {
                   lineHeight: 1.7,
                 }}
               >
-                Today, we manage turnkey transportation solutions for organizations ranging from high-growth enterprises to multinational corporations—handling dedicated shift rosters, executive chauffeur-driven sedans, and round-the-clock emergency replacement readiness.
+                In August 2025, the business transitioned into Milind Travels Private Limited, marking a significant milestone in our growth and strengthening our foundation for future expansion. Today, we operate a diverse fleet comprising 80+ owned vehicles and approximately 500 attached vehicles, enabling us to cater to a wide range of corporate transportation requirements across Mumbai's Western, Eastern, and Harbour Zones.
               </p>
             </div>
           </div>
@@ -63,8 +62,8 @@ export default function AboutHeritageSection() {
               }}
             >
               <Image
-                src="/images/fleet/executive-sedan.jpg"
-                alt="Milind Travels Executive Mobility in Mumbai"
+                src="/images/fleet/premium-mpv.jpg"
+                alt="Milind Travels Corporate Fleet Mobility in Mumbai"
                 fill
                 sizes="(max-width: 900px) 100vw, 40vw"
                 style={{ objectFit: "cover" }}
@@ -87,10 +86,10 @@ export default function AboutHeritageSection() {
                 }}
               >
                 <div style={{ fontSize: "0.78rem", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-champagne)" }}>
-                  Operations Base
+                  Operations &amp; Communications Base
                 </div>
                 <strong style={{ fontSize: "1.1rem", display: "block" }}>
-                  Kailas Business Park, Vikhroli West
+                  A-808, Kailas Business Park, Vikhroli West
                 </strong>
                 <span style={{ fontSize: "0.82rem", color: "#C8D3DB" }}>
                   Centrally positioned for immediate Mumbai MMR transit coordination.

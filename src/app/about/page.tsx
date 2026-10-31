@@ -47,7 +47,7 @@ export default function AboutPage() {
               Key Milestones in Our Growth
             </h1>
             <p className="text-lead" style={{ color: "var(--text-dark-secondary)" }}>
-              Experience the evolution of Milind Travels across 24+ years—from pioneer corporate car rentals in Mumbai in 2000 to comprehensive enterprise mobility logistics today.
+              Established in April 2000 with just one vehicle providing cab services to call centres and BPO companies, growing over 24+ years into Milind Travels Private Limited operating 80+ owned and ~500 attached vehicles.
             </p>
           </div>
 

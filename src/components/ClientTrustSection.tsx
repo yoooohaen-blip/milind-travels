@@ -185,27 +185,58 @@ export default function ClientTrustSection() {
                 </div>
 
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <h4
-                    style={{
-                      fontSize: "1.05rem",
-                      fontWeight: 700,
-                      color: "var(--color-midnight-navy)",
-                      marginBottom: "0.2rem",
-                      lineHeight: 1.25,
-                    }}
-                  >
-                    {client.name}
-                  </h4>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.5rem", flexWrap: "wrap", marginBottom: "0.2rem" }}>
+                    <h4
+                      style={{
+                        fontSize: "1.05rem",
+                        fontWeight: 700,
+                        color: "var(--color-midnight-navy)",
+                        margin: 0,
+                        lineHeight: 1.25,
+                      }}
+                    >
+                      {client.name}
+                    </h4>
+                    {client.tenure && (
+                      <span
+                        style={{
+                          fontSize: "0.72rem",
+                          fontWeight: 700,
+                          padding: "0.2rem 0.55rem",
+                          borderRadius: "100px",
+                          backgroundColor: "rgba(199, 166, 120, 0.15)",
+                          color: "var(--color-champagne-dark)",
+                          border: "1px solid rgba(199, 166, 120, 0.35)",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {client.tenure}
+                      </span>
+                    )}
+                  </div>
                   <span
                     style={{
                       fontSize: "0.82rem",
                       color: "var(--text-dark-secondary)",
                       display: "block",
-                      marginBottom: "0.45rem",
+                      marginBottom: client.highlight ? "0.3rem" : "0.45rem",
                     }}
                   >
                     {client.industry}
                   </span>
+                  {client.highlight && (
+                    <p
+                      style={{
+                        fontSize: "0.78rem",
+                        color: "var(--color-midnight-navy)",
+                        fontWeight: 500,
+                        margin: "0 0 0.45rem 0",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {client.highlight}
+                    </p>
+                  )}
                   <div
                     style={{
                       display: "inline-flex",

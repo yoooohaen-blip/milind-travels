@@ -16,14 +16,13 @@ export default function MumbaiCoverageSection() {
         {/* Section Header */}
         <div style={{ maxWidth: "800px", marginBottom: "3.5rem" }}>
           <h2 className="text-section-title" style={{ color: "var(--color-midnight-navy)", marginBottom: "1.25rem" }}>
-            Comprehensive Corridor Coverage
+            Operational Coverage Across
             <br />
-            Across Greater Mumbai.
+            Mumbai&apos;s Major Geographical Zones.
           </h2>
 
           <p className="text-lead" style={{ color: "var(--text-dark-secondary)" }}>
-            Strategically headquartered in Kailas Business Park, Vikhroli West, our fleet coordination desk
-            operates across every key commercial node in Mumbai, Navi Mumbai, and Thane.
+            We provide transportation services across Mumbai&apos;s major geographical zones: Western Zone, Eastern Zone, and Harbour Zone — operating 24 hours a day, 7 days a week, and 365 days a year.
           </p>
         </div>
 
