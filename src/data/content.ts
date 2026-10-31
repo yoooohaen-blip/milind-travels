@@ -210,7 +210,7 @@ export const CORE_SERVICES: ServiceItem[] = [
     vehicleTypes: ["Executive Sedans", "Multi-Passenger MPVs (Innova Class)", "13-26 Seater Corporate Shuttles"],
     idealFor: ["IT & SaaS Hubs", "BPOs & Contact Centers", "Banking & Financial Services", "Corporate Campuses"],
     badge: "Core Enterprise Solution",
-    iconName: "Users",
+    iconName: "BusFront",
   },
   {
     id: "ad-hoc-duty",
@@ -228,7 +228,7 @@ export const CORE_SERVICES: ServiceItem[] = [
     vehicleTypes: ["Executive Sedans", "Premium MPVs (Innova Crysta / Hycross)", "Luxury Saloons"],
     idealFor: ["Contracted Enterprise Clients", "Emergency & Unscheduled Executive Travel", "Project Teams & Inspections", "Client Delegations"],
     badge: "Priority Connected Service",
-    iconName: "ShieldCheck",
+    iconName: "CarFront",
   },
   {
     id: "airport-transfers",
@@ -246,7 +246,7 @@ export const CORE_SERVICES: ServiceItem[] = [
     vehicleTypes: ["Executive Sedans (Camry / E-Class)", "Premium MPVs (Innova Crysta / Hycross)", "Comfort Compact Sedans"],
     idealFor: ["Visiting Leadership & Delegations", "C-Suite & Board Members", "Corporate Business Travelers", "Key Stakeholders"],
     badge: "Executive Airport Transit",
-    iconName: "PlaneTakeoff",
+    iconName: "Plane",
   },
   {
     id: "custom-packages",
@@ -264,7 +264,7 @@ export const CORE_SERVICES: ServiceItem[] = [
     vehicleTypes: ["Full Fleet Range Available (Sedans, MPVs, Coaches, Luxury Tiers)"],
     idealFor: ["Project-Based Teams", "Dedicated Executive Vehicle Retainers", "Annual Corporate mobility MSAs", "Corporate Summits & Events"],
     badge: "Custom Client Packages",
-    iconName: "CalendarRange",
+    iconName: "Briefcase",
   },
 ];
 

@@ -4,6 +4,10 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  BusFront,
+  CarFront,
+  Plane,
+  Briefcase,
   Users,
   ShieldCheck,
   Crown,
@@ -41,7 +45,7 @@ const SERVICES_DATA: MasterpieceService[] = [
     badge: "Core Enterprise Solution",
     fleetTag: "13–26 Seater Shuttles & Multi-Passenger MPVs",
     deliverables: ["24/7 Rotational Shift Synchronization", "Safe Female Passenger Gate Drop Confirmation", "Pre-Planned Suburban Route Buffer Planning"],
-    icon: "Users",
+    icon: "BusFront",
   },
   {
     id: "ad-hoc-duty",
@@ -53,7 +57,7 @@ const SERVICES_DATA: MasterpieceService[] = [
     badge: "Priority Connected Service",
     fleetTag: "Executive Sedans & Toyota Innova Crysta / Hycross",
     deliverables: ["Zero Surge Pricing on Contracted Corporate Rates", "Standby Vehicles Stationed at Key Mumbai Hubs", "24/7 Real-Time Supervisor Dispatch Support"],
-    icon: "ShieldCheck",
+    icon: "CarFront",
   },
   {
     id: "airport-transfers",
@@ -65,7 +69,7 @@ const SERVICES_DATA: MasterpieceService[] = [
     badge: "Executive Airport Transit",
     fleetTag: "Camry Hybrid, Mercedes-Benz & Premium MPVs",
     deliverables: ["Live Commercial Flight Delay Tracking", "BOM T1 / T2 Terminal Meet & Assist Greetings", "Luggage Protocol & Direct Terminal Curb Pickup"],
-    icon: "PlaneTakeoff",
+    icon: "Plane",
   },
   {
     id: "custom-packages",
@@ -77,7 +81,7 @@ const SERVICES_DATA: MasterpieceService[] = [
     badge: "Custom Client Packages",
     fleetTag: "Complete Fleet Mix Across All Tiers",
     deliverables: ["Dedicated Vehicle & Assigned Background-Verified Chauffeur", "Single Consolidated Monthly GST Invoicing", "Customized Service Level Agreements (SLAs)"],
-    icon: "CalendarRange",
+    icon: "Briefcase",
   },
 ];
 
@@ -104,18 +108,20 @@ export default function HomeServicesShowcase() {
 
   const getServiceIcon = (name: string, size = 20) => {
     switch (name) {
+      case "BusFront":
       case "Users":
-        return <Users size={size} />;
+        return <BusFront size={size} strokeWidth={2.1} />;
+      case "CarFront":
       case "ShieldCheck":
-        return <ShieldCheck size={size} />;
-      case "Crown":
-        return <Crown size={size} />;
+        return <CarFront size={size} strokeWidth={2.1} />;
+      case "Plane":
       case "PlaneTakeoff":
-        return <PlaneTakeoff size={size} />;
+        return <Plane size={size} strokeWidth={2.1} />;
+      case "Briefcase":
       case "CalendarRange":
-        return <CalendarRange size={size} />;
+        return <Briefcase size={size} strokeWidth={2.1} />;
       default:
-        return <Users size={size} />;
+        return <CarFront size={size} strokeWidth={2.1} />;
     }
   };
 

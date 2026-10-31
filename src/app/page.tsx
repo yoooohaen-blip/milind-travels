@@ -12,6 +12,9 @@ import {
   ArrowRight,
   ArrowUpRight,
   ShieldCheck,
+  BusFront,
+  CarFront,
+  Plane,
   Users,
   Car,
   MapPin,
@@ -30,14 +33,14 @@ export default function HomePage() {
   const getServiceIcon = (id: string) => {
     switch (id) {
       case "staff-transportation":
-        return <Users size={20} style={{ color: "var(--color-midnight-navy)" }} />;
+        return <BusFront size={20} strokeWidth={2.1} style={{ color: "var(--color-midnight-navy)" }} />;
       case "ad-hoc-duty":
-        return <ShieldCheck size={20} style={{ color: "var(--color-midnight-navy)" }} />;
+        return <CarFront size={20} strokeWidth={2.1} style={{ color: "var(--color-midnight-navy)" }} />;
       case "airport-transfers":
-        return <PlaneTakeoff size={20} style={{ color: "var(--color-midnight-navy)" }} />;
+        return <Plane size={20} strokeWidth={2.1} style={{ color: "var(--color-midnight-navy)" }} />;
       case "custom-packages":
       default:
-        return <CalendarRange size={20} style={{ color: "var(--color-midnight-navy)" }} />;
+        return <Briefcase size={20} strokeWidth={2.1} style={{ color: "var(--color-midnight-navy)" }} />;
     }
   };
 

@@ -5,6 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { CORE_SERVICES, ServiceItem, CONTACT_INFO } from "@/data/content";
 import {
+  BusFront,
+  CarFront,
+  Plane,
+  Briefcase,
   Users,
   ShieldCheck,
   Crown,
@@ -15,7 +19,6 @@ import {
   ArrowUpRight,
   Car,
   MapPin,
-  Phone,
   Sparkles,
   Shield,
   Clock,
@@ -56,20 +59,22 @@ export default function ServicesSection() {
   const [activeServiceId, setActiveServiceId] = useState<string>(CORE_SERVICES[0].id);
   const isClickScrolling = useRef(false);
 
-  const getServiceIcon = (iconName: string, size = 20) => {
+  const getServiceIcon = (iconName: string, size = 18) => {
     switch (iconName) {
+      case "BusFront":
       case "Users":
-        return <Users size={size} />;
+        return <BusFront size={size} strokeWidth={2.1} />;
+      case "CarFront":
       case "ShieldCheck":
-        return <ShieldCheck size={size} />;
-      case "Crown":
-        return <Crown size={size} />;
+        return <CarFront size={size} strokeWidth={2.1} />;
+      case "Plane":
       case "PlaneTakeoff":
-        return <PlaneTakeoff size={size} />;
+        return <Plane size={size} strokeWidth={2.1} />;
+      case "Briefcase":
       case "CalendarRange":
-        return <CalendarRange size={size} />;
+        return <Briefcase size={size} strokeWidth={2.1} />;
       default:
-        return <Car size={size} />;
+        return <CarFront size={size} strokeWidth={2.1} />;
     }
   };
 
@@ -153,7 +158,7 @@ export default function ServicesSection() {
           </h2>
 
           <p className="text-lead" style={{ color: "var(--text-dark-secondary)" }}>
-            Explore our five core contractual transit models—from synchronized 24/7 staff rosters
+            Explore our four core contractual transit models—from synchronized 24/7 staff rosters
             and turnkey outsourced fleet administration to VIP C-suite car rentals across Mumbai & MMR.
           </p>
         </div>
@@ -215,7 +220,7 @@ export default function ServicesSection() {
                       color: "var(--color-midnight-navy)",
                     }}
                   >
-                    5 Specialized Verticals
+                    4 Specialized Verticals
                   </strong>
                 </div>
 
@@ -235,11 +240,11 @@ export default function ServicesSection() {
                 >
                   <span>0{activeIndex + 1}</span>
                   <span style={{ color: "#81909A" }}>/</span>
-                  <span style={{ color: "var(--color-midnight-navy)" }}>05</span>
+                  <span style={{ color: "var(--color-midnight-navy)" }}>04</span>
                 </div>
               </div>
 
-              {/* 5 Service Navigation Buttons */}
+              {/* 4 Service Navigation Buttons */}
               <div
                 style={{
                   display: "flex",
@@ -279,21 +284,25 @@ export default function ServicesSection() {
                       <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
                         <div
                           style={{
-                            width: "36px",
-                            height: "36px",
-                            borderRadius: "8px",
+                            width: "38px",
+                            height: "38px",
+                            borderRadius: "10px",
                             backgroundColor: isSelected
-                              ? "rgba(199, 166, 120, 0.18)"
+                              ? "rgba(199, 166, 120, 0.22)"
                               : "rgba(8, 21, 33, 0.05)",
+                            border: isSelected
+                              ? "1px solid rgba(199, 166, 120, 0.45)"
+                              : "1px solid rgba(8, 21, 33, 0.08)",
                             color: isSelected ? "var(--color-champagne)" : "var(--color-midnight-navy)",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
                             flexShrink: 0,
                             transition: "all 250ms ease",
+                            boxShadow: isSelected ? "0 2px 8px rgba(199, 166, 120, 0.2)" : "none",
                           }}
                         >
-                          {getServiceIcon(service.iconName, 18)}
+                          {getServiceIcon(service.iconName, 19)}
                         </div>
 
                         <div>
@@ -336,64 +345,6 @@ export default function ServicesSection() {
                     </button>
                   );
                 })}
-              </div>
-
-              {/* Bottom Operational Support Card */}
-              <div
-                style={{
-                  padding: "1.15rem 1.25rem",
-                  backgroundColor: "rgba(199, 166, 120, 0.08)",
-                  borderRadius: "var(--radius-md)",
-                  border: "1px solid rgba(199, 166, 120, 0.25)",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.65rem",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                  <span
-                    style={{
-                      width: "8px",
-                      height: "8px",
-                      borderRadius: "50%",
-                      backgroundColor: "#10B981",
-                      display: "inline-block",
-                      boxShadow: "0 0 8px rgba(16, 185, 129, 0.6)",
-                    }}
-                  />
-                  <span
-                    style={{
-                      fontSize: "0.75rem",
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.08em",
-                      color: "var(--color-midnight-navy)",
-                    }}
-                  >
-                    24/7 Operations Command
-                  </span>
-                </div>
-
-                <p style={{ fontSize: "0.82rem", color: "var(--text-dark-secondary)", lineHeight: 1.5, margin: 0 }}>
-                  Stationed at Kailas Business Park, Vikhroli West for instant MMR fleet coordination.
-                </p>
-
-                <a
-                  href={`tel:${CONTACT_INFO.phone}`}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.4rem",
-                    fontSize: "0.85rem",
-                    fontWeight: 700,
-                    color: "var(--color-champagne-dark)",
-                    textDecoration: "none",
-                    marginTop: "0.2rem",
-                  }}
-                >
-                  <Phone size={14} />
-                  <span>{CONTACT_INFO.phoneFormatted}</span>
-                </a>
               </div>
             </div>
           </div>
