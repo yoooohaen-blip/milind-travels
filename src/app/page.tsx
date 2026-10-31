@@ -440,10 +440,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Executive Leadership & Board of Directors */}
-      <HomeIntroDirectorsSection />
-
-      {/* 6. Interactive Calculator Callout Banner */}
+      {/* 5. Interactive Calculator Callout Banner */}
       <section className="section-py surface-light" style={{ borderBottom: "1px solid rgba(8, 21, 33, 0.08)" }}>
         <div className="site-container">
           <div
@@ -518,6 +515,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 6. Executive Leadership & Board of Directors */}
+      <HomeIntroDirectorsSection />
 
       {/* 7. Client Trust Strip with Infinite Auto-Scrolling (Only Logos) */}
       <section className="section-py surface-light" style={{ borderBottom: "1px solid rgba(8, 21, 33, 0.08)", overflow: "hidden" }}>
