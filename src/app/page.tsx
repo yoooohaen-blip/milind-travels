@@ -556,16 +556,15 @@ export default function HomePage() {
                 <Image
                   src={`/images/clients/${client.logoFilename}`}
                   alt={`${client.name} Corporate Client`}
-                  width={140}
-                  height={44}
+                  width={150}
+                  height={48}
                   style={{
-                    maxHeight: "38px",
-                    maxWidth: "130px",
+                    maxHeight: "44px",
+                    maxWidth: "140px",
                     width: "auto",
                     height: "auto",
                     objectFit: "contain",
-                    filter: "grayscale(100%) contrast(110%) opacity(80%)",
-                    transition: "filter 0.3s ease, transform 0.3s ease",
+                    transition: "transform 0.25s ease",
                   }}
                   className="home-logo-img"
                 />
@@ -615,28 +614,27 @@ export default function HomePage() {
 
           .home-logo-pill {
             background-color: #FFFFFF;
-            border: 1px solid rgba(129, 144, 154, 0.16);
+            border: 1px solid rgba(8, 21, 33, 0.08);
             border-radius: 14px;
-            height: 78px;
-            min-width: 190px;
-            padding: 0.75rem 1.25rem;
+            height: 82px;
+            min-width: 200px;
+            padding: 0.75rem 1.4rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 3px 12px rgba(8, 21, 33, 0.04);
+            box-shadow: 0 4px 14px rgba(8, 21, 33, 0.04);
             transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
             user-select: none;
           }
 
           .home-logo-pill:hover {
             transform: translateY(-3px) scale(1.02);
-            border-color: rgba(199, 166, 120, 0.45);
-            box-shadow: 0 8px 20px rgba(8, 21, 33, 0.08), 0 0 14px rgba(199, 166, 120, 0.15);
+            border-color: rgba(199, 166, 120, 0.5);
+            box-shadow: 0 10px 24px rgba(8, 21, 33, 0.08);
           }
 
           .home-logo-pill:hover :global(.home-logo-img) {
-            filter: grayscale(0%) opacity(100%) !important;
-            transform: scale(1.04);
+            transform: scale(1.05);
           }
 
           @keyframes homeMarqueeScroll {
