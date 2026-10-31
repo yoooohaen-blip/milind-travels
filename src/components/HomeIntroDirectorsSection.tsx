@@ -179,125 +179,170 @@ export default function HomeIntroDirectorsSection() {
           </div>
         </div>
 
-        {/* 2 Clean & Uncluttered Executive Director Cards */}
+        {/* 2 Clean & Redesigned Executive Director Cards */}
         <div className="grid-12" style={{ alignItems: "stretch", gap: "1.5rem" }}>
           {/* Card 1: Milind Prabhakar Phodkar */}
           <div
             className="monumental-director-panel"
             style={{
               gridColumn: "span 6",
-              backgroundColor: "rgba(10, 22, 34, 0.75)",
-              border: "1px solid rgba(199, 166, 120, 0.22)",
-              borderRadius: "14px",
-              padding: "1.35rem 1.6rem",
+              backgroundColor: "rgba(10, 22, 34, 0.82)",
+              border: "1px solid rgba(199, 166, 120, 0.24)",
+              borderRadius: "18px",
+              padding: "clamp(1.5rem, 2.5vw, 1.85rem)",
               position: "relative",
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
-              boxShadow: "0 12px 32px rgba(0, 0, 0, 0.35)",
+              boxShadow: "0 16px 40px rgba(0, 0, 0, 0.4)",
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              gap: "0.85rem",
-              transition: "transform 0.25s ease, border-color 0.25s ease",
+              alignItems: "center",
+              gap: "1.6rem",
+              transition: "transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
             }}
           >
-            {/* Top: Executive Portrait + Clean Identity */}
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+            {/* Left: Tilted Gold Bordered Portrait */}
+            <div
+              style={{
+                position: "relative",
+                width: "135px",
+                height: "160px",
+                flexShrink: 0,
+              }}
+              className="director-portrait-wrap"
+            >
+              {/* Tilted gold backdrop layer */}
               <div
                 style={{
-                  width: "56px",
-                  height: "56px",
+                  position: "absolute",
+                  inset: "-4px -3px 4px 3px",
+                  borderRadius: "14px",
+                  background: "linear-gradient(135deg, rgba(199, 166, 120, 0.5) 0%, rgba(199, 166, 120, 0.1) 100%)",
+                  border: "1px solid rgba(199, 166, 120, 0.45)",
+                  transform: "rotate(-3.5deg)",
+                  zIndex: 0,
+                  boxShadow: "0 6px 20px rgba(199, 166, 120, 0.15)",
+                }}
+              />
+              {/* Front Portrait Image */}
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "100%",
                   borderRadius: "14px",
                   overflow: "hidden",
-                  border: "2px solid var(--color-champagne)",
-                  boxShadow: "0 4px 14px rgba(0, 0, 0, 0.45)",
-                  flexShrink: 0,
-                  position: "relative",
-                  backgroundColor: "#0A1622",
+                  border: "1.5px solid rgba(199, 166, 120, 0.75)",
+                  boxShadow: "0 10px 26px rgba(0, 0, 0, 0.6)",
+                  zIndex: 1,
+                  backgroundColor: "#07121C",
                 }}
               >
                 <Image
                   src="/images/directors/milind-phodkar.jpg"
                   alt="Milind Prabhakar Phodkar — Founder & Managing Director"
-                  width={112}
-                  height={112}
+                  fill
+                  sizes="150px"
                   style={{
-                    width: "100%",
-                    height: "100%",
                     objectFit: "cover",
                     objectPosition: "center 15%",
                   }}
                   priority
                 />
               </div>
+            </div>
 
-              <div style={{ flex: 1, minWidth: 0 }}>
+            {/* Right: Identity & Clean Text */}
+            <div
+              style={{
+                flex: 1,
+                minWidth: 0,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                gap: "0.6rem",
+              }}
+            >
+              <div>
                 <h4
                   style={{
                     fontFamily: "var(--font-heading)",
-                    fontSize: "1.15rem",
+                    fontSize: "1.2rem",
                     fontWeight: 700,
                     color: "#FFFFFF",
                     margin: 0,
                     lineHeight: 1.25,
+                    letterSpacing: "-0.01em",
                   }}
                 >
                   Milind Prabhakar Phodkar
                 </h4>
                 <div
                   style={{
-                    fontSize: "0.78rem",
-                    color: "var(--color-champagne-light)",
+                    fontSize: "0.82rem",
+                    color: "var(--color-champagne)",
                     fontWeight: 600,
-                    marginTop: "0.2rem",
+                    marginTop: "0.25rem",
+                    marginBottom: "0.55rem",
                   }}
                 >
-                  Founder & Managing Director • 24+ Years Leadership
+                  Founder &amp; Managing Director • 24+ Years Leadership
                 </div>
+                <p
+                  style={{
+                    fontSize: "0.84rem",
+                    color: "#BAC7D3",
+                    lineHeight: 1.55,
+                    margin: 0,
+                  }}
+                >
+                  Founded Milind Travels in 2000. Steers institutional enterprise MSAs, statutory corporate governance, and passenger safety compliance across Mumbai.
+                </p>
               </div>
-            </div>
 
-            {/* Middle: Clean Executive Summary */}
-            <p
-              style={{
-                fontSize: "0.84rem",
-                color: "#BAC7D3",
-                lineHeight: 1.6,
-                margin: 0,
-              }}
-            >
-              Founded Milind Travels in 2000. Steers institutional enterprise MSAs, statutory corporate governance, and passenger safety compliance across Mumbai.
-            </p>
-
-            {/* Bottom: Minimal Contact & Link */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                paddingTop: "0.75rem",
-                borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                fontSize: "0.75rem",
-              }}
-            >
-              <span style={{ color: "#8E9EAD" }}>
-                <span style={{ color: "var(--color-champagne)", fontWeight: 600 }}>Direct:</span> mumbai@milindtravels.com
-              </span>
-              <Link
-                href="/contact"
+              {/* Minimal Bottom Bar */}
+              <div
                 style={{
-                  color: "var(--color-champagne)",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  display: "inline-flex",
+                  display: "flex",
+                  justifyContent: "space-between",
                   alignItems: "center",
-                  gap: "0.25rem",
-                  transition: "color 0.2s ease",
+                  paddingTop: "0.65rem",
+                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                  fontSize: "0.76rem",
+                  flexWrap: "wrap",
+                  gap: "0.5rem",
                 }}
               >
-                <span>Contact Office</span>
-                <ChevronRight size={13} />
-              </Link>
+                <a
+                  href="mailto:mumbai@milindtravels.com"
+                  style={{
+                    color: "#BAC7D3",
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.4rem",
+                  }}
+                >
+                  <Mail size={13} style={{ color: "var(--color-champagne)" }} />
+                  <span>
+                    <strong style={{ color: "var(--color-champagne)" }}>Direct:</strong> mumbai@milindtravels.com
+                  </span>
+                </a>
+                <Link
+                  href="/contact"
+                  style={{
+                    color: "var(--color-champagne)",
+                    fontWeight: 600,
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.25rem",
+                    transition: "color 0.2s ease",
+                  }}
+                >
+                  <span>Contact Office</span>
+                  <ChevronRight size={13} />
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -306,117 +351,163 @@ export default function HomeIntroDirectorsSection() {
             className="monumental-director-panel"
             style={{
               gridColumn: "span 6",
-              backgroundColor: "rgba(10, 22, 34, 0.75)",
-              border: "1px solid rgba(199, 166, 120, 0.22)",
-              borderRadius: "14px",
-              padding: "1.35rem 1.6rem",
+              backgroundColor: "rgba(10, 22, 34, 0.82)",
+              border: "1px solid rgba(199, 166, 120, 0.24)",
+              borderRadius: "18px",
+              padding: "clamp(1.5rem, 2.5vw, 1.85rem)",
               position: "relative",
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
-              boxShadow: "0 12px 32px rgba(0, 0, 0, 0.35)",
+              boxShadow: "0 16px 40px rgba(0, 0, 0, 0.4)",
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              gap: "0.85rem",
-              transition: "transform 0.25s ease, border-color 0.25s ease",
+              alignItems: "center",
+              gap: "1.6rem",
+              transition: "transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
             }}
           >
-            {/* Top: Insignia Seal + Clean Identity */}
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+            {/* Left: Tilted Gold Bordered Silhouette */}
+            <div
+              style={{
+                position: "relative",
+                width: "135px",
+                height: "160px",
+                flexShrink: 0,
+              }}
+              className="director-portrait-wrap"
+            >
+              {/* Tilted gold backdrop layer */}
               <div
                 style={{
-                  width: "56px",
-                  height: "56px",
+                  position: "absolute",
+                  inset: "-4px -3px 4px 3px",
                   borderRadius: "14px",
-                  background: "linear-gradient(135deg, #132435 0%, #081521 100%)",
-                  border: "1.5px solid rgba(199, 166, 120, 0.5)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.4)",
+                  background: "linear-gradient(135deg, rgba(199, 166, 120, 0.5) 0%, rgba(199, 166, 120, 0.1) 100%)",
+                  border: "1px solid rgba(199, 166, 120, 0.45)",
+                  transform: "rotate(-3.5deg)",
+                  zIndex: 0,
+                  boxShadow: "0 6px 20px rgba(199, 166, 120, 0.15)",
+                }}
+              />
+              {/* Front Silhouette Image */}
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "14px",
+                  overflow: "hidden",
+                  border: "1.5px solid rgba(199, 166, 120, 0.75)",
+                  boxShadow: "0 10px 26px rgba(0, 0, 0, 0.6)",
+                  zIndex: 1,
+                  backgroundColor: "#07121C",
                 }}
               >
-                <span
+                <Image
+                  src="/images/directors/sarvesh-phodkar.jpg"
+                  alt="Sarvesh Milind Phodkar — Director — Operations & Fleet Technology"
+                  fill
+                  sizes="150px"
                   style={{
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "1.05rem",
-                    fontWeight: 800,
-                    color: "var(--color-champagne)",
-                    letterSpacing: "0.04em",
+                    objectFit: "cover",
+                    objectPosition: "center 20%",
                   }}
-                >
-                  SM
-                </span>
+                  priority
+                />
               </div>
+            </div>
 
-              <div style={{ flex: 1, minWidth: 0 }}>
+            {/* Right: Identity & Clean Text */}
+            <div
+              style={{
+                flex: 1,
+                minWidth: 0,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                gap: "0.6rem",
+              }}
+            >
+              <div>
                 <h4
                   style={{
                     fontFamily: "var(--font-heading)",
-                    fontSize: "1.15rem",
+                    fontSize: "1.2rem",
                     fontWeight: 700,
                     color: "#FFFFFF",
                     margin: 0,
                     lineHeight: 1.25,
+                    letterSpacing: "-0.01em",
                   }}
                 >
                   Sarvesh Milind Phodkar
                 </h4>
                 <div
                   style={{
-                    fontSize: "0.78rem",
-                    color: "var(--color-champagne-light)",
+                    fontSize: "0.82rem",
+                    color: "var(--color-champagne)",
                     fontWeight: 600,
-                    marginTop: "0.2rem",
+                    marginTop: "0.25rem",
+                    marginBottom: "0.55rem",
                   }}
                 >
-                  Director — Operations & Fleet Technology
+                  Director — Operations &amp; Fleet Technology
                 </div>
+                <p
+                  style={{
+                    fontSize: "0.84rem",
+                    color: "#BAC7D3",
+                    lineHeight: 1.55,
+                    margin: 0,
+                  }}
+                >
+                  Directs 24/7 corporate fleet route execution, automated shift rosters, priority ad-hoc client dispatch, and driver compliance frameworks across MMR.
+                </p>
               </div>
-            </div>
 
-            {/* Middle: Clean Executive Summary */}
-            <p
-              style={{
-                fontSize: "0.84rem",
-                color: "#BAC7D3",
-                lineHeight: 1.6,
-                margin: 0,
-              }}
-            >
-              Directs 24/7 corporate fleet route execution, automated shift rosters, priority ad-hoc client dispatch, and driver compliance frameworks across MMR.
-            </p>
-
-            {/* Bottom: Minimal Hub & Link */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                paddingTop: "0.75rem",
-                borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                fontSize: "0.75rem",
-              }}
-            >
-              <span style={{ color: "#8E9EAD" }}>
-                <span style={{ color: "var(--color-champagne)", fontWeight: 600 }}>Corporate Office:</span> Kailas Business Park, Vikhroli (W)
-              </span>
-              <Link
-                href="/calculator"
+              {/* Minimal Bottom Bar: No address, No plan proposal */}
+              <div
                 style={{
-                  color: "var(--color-champagne)",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  display: "inline-flex",
+                  display: "flex",
+                  justifyContent: "space-between",
                   alignItems: "center",
-                  gap: "0.25rem",
-                  transition: "color 0.2s ease",
+                  paddingTop: "0.65rem",
+                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                  fontSize: "0.76rem",
+                  flexWrap: "wrap",
+                  gap: "0.5rem",
                 }}
               >
-                <span>Plan Proposal</span>
-                <ChevronRight size={13} />
-              </Link>
+                <a
+                  href={`tel:${CONTACT_INFO.phone}`}
+                  style={{
+                    color: "#BAC7D3",
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.4rem",
+                  }}
+                >
+                  <Phone size={13} style={{ color: "var(--color-champagne)" }} />
+                  <span>
+                    <strong style={{ color: "var(--color-champagne)" }}>Direct:</strong> {CONTACT_INFO.phoneFormatted}
+                  </span>
+                </a>
+                <Link
+                  href="/contact"
+                  style={{
+                    color: "var(--color-champagne)",
+                    fontWeight: 600,
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.25rem",
+                    transition: "color 0.2s ease",
+                  }}
+                >
+                  <span>Contact Office</span>
+                  <ChevronRight size={13} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -479,6 +570,16 @@ export default function HomeIntroDirectorsSection() {
           }
           .strip-divider {
             display: none;
+          }
+        }
+
+        @media (max-width: 580px) {
+          .monumental-director-panel {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+          }
+          .director-portrait-wrap {
+            margin: 0 auto 0.5rem auto !important;
           }
         }
       `}</style>
