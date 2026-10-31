@@ -364,26 +364,6 @@ export default function OperationalFrameworkSection() {
                     ))}
                   </div>
                 </div>
-
-                {/* Card Footer: Subtle Corporate Assurance Badge */}
-                <div
-                  style={{
-                    paddingTop: "1rem",
-                    borderTop: "1px solid rgba(8, 21, 33, 0.06)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    fontSize: "0.76rem",
-                    color: "var(--text-dark-muted)",
-                  }}
-                >
-                  <span style={{ fontWeight: 600 }}>
-                    Central Command: Kailas Business Park, Vikhroli (W)
-                  </span>
-                  <span style={{ color: "var(--color-champagne-dark)", fontWeight: 700 }}>
-                    Audited Protocol
-                  </span>
-                </div>
               </div>
             );
           })}
