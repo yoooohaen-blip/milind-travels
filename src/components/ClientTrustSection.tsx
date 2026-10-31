@@ -11,8 +11,8 @@ export default function ClientTrustSection() {
   
   // Row 2: offset rotated order duplicated for seamless loop
   const rotatedClients = [
-    ...HISTORICAL_CLIENTS.slice(6),
-    ...HISTORICAL_CLIENTS.slice(0, 6),
+    ...HISTORICAL_CLIENTS.slice(5),
+    ...HISTORICAL_CLIENTS.slice(0, 5),
   ];
   const row2Logos = [...rotatedClients, ...rotatedClients];
 

@@ -448,18 +448,16 @@ export const MUMBAI_CORRIDORS: MumbaiCorridor[] = [
 ];
 
 export const HISTORICAL_CLIENTS: HistoricalClient[] = [
-  { name: "Accenture", logoFilename: "accenture.png", industry: "Global Technology & Consulting", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
-  { name: "Bharti-AXA", logoFilename: "bharti-axa.png", industry: "Banking & Financial Services", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
-  { name: "eClinicalWorks", logoFilename: "e-clinical-works.png", industry: "Healthcare IT & Enterprise Software", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
-  { name: "Duck Creek", logoFilename: "duck-creek.png", industry: "Enterprise Insurance Software", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
-  { name: "JLT (Jardine Lloyd Thompson)", logoFilename: "jlt.png", industry: "Insurance & Risk Consultancy", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
-  { name: "Integreon", logoFilename: "integreon.png", industry: "Legal Knowledge & Business Solutions", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
-  { name: "Bizmatics", logoFilename: "bizmatics.png", industry: "Clinical Software & Practice Management", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
-  { name: "Total Talent Solutions", logoFilename: "total-talent-solutions.png", industry: "Human Capital Management", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
-  { name: "Secure Source Technologies", logoFilename: "secure-source-technologies.png", industry: "Information Security Solutions", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
-  { name: "Zenta", logoFilename: "Zenta.png", industry: "BPO & Mortgage Processing (Historical Client)", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
-  { name: "NCO", logoFilename: "NCO.png", industry: "Business Process Outsourcing (Historical Client)", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
-  { name: "Vivid", logoFilename: "Vivid.png", industry: "Enterprise Digital Services (Historical Client)", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
+  { name: "Accenture", logoFilename: "accenture.jpg", industry: "Global Technology & Consulting", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
+  { name: "Kotak Mahindra Bank", logoFilename: "kotak-mahindra-bank.jpg", industry: "Banking & Financial Services", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
+  { name: "MUFG", logoFilename: "mufg.jpg", industry: "Global Financial Group & Banking", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
+  { name: "eClinicalWorks", logoFilename: "e-clinical-works.jpg", industry: "Healthcare IT & Enterprise Software", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
+  { name: "Duck Creek Technologies", logoFilename: "duck-creek.jpg", industry: "Enterprise Insurance Software", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
+  { name: "Harris", logoFilename: "harris.jpg", industry: "Enterprise Technology Solutions", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
+  { name: "Integreon", logoFilename: "integreon.jpg", industry: "Legal Knowledge & Business Solutions", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
+  { name: "Radius", logoFilename: "radius.jpg", industry: "Global Corporate Services", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
+  { name: "Sembridge", logoFilename: "sembridge.jpg", industry: "Enterprise Advisory & Operations", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
+  { name: "Waystone", logoFilename: "waystone.jpg", industry: "Institutional Governance & Fund Services", isVerifiedHistoricalRecord: true, needsNdaVerificationBeforeAdCampaign: true },
 ];
 
 export const COMPANY_HERITAGE = {
