@@ -101,7 +101,7 @@ export default function Preloader() {
         }}
       >
         <Image
-          src="/images/brand/milind-logo-v2-white.png"
+          src="/images/brand/milind-logo-v3-white.png"
           alt="Milind Travels Mumbai"
           width={500}
           height={175}

@@ -138,7 +138,7 @@ export default function Navbar() {
               }}
             >
               <Image
-                src="/images/brand/milind-logo-v2-white.png"
+                src="/images/brand/milind-logo-v3-white.png"
                 alt="Milind Travels"
                 fill
                 priority
@@ -248,7 +248,7 @@ export default function Navbar() {
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <div style={{ position: "relative", width: "170px", height: "55px", marginBottom: "0.5rem" }}>
               <Image
-                src="/images/brand/milind-logo-v2-white.png"
+                src="/images/brand/milind-logo-v3-white.png"
                 alt="Milind Travels"
                 fill
                 style={{ objectFit: "contain", objectPosition: "left center" }}

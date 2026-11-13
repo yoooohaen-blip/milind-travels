@@ -25,7 +25,7 @@ export default function Footer() {
             <Link href="/" className="spyker-brand-link" title="Milind Travels — Home">
               <div className="spyker-logo-box">
                 <Image
-                  src="/images/brand/milind-logo-v2-dark.png"
+                  src="/images/brand/milind-logo-v3-dark.png"
                   alt="Milind Travels"
                   fill
                   priority

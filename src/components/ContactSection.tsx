@@ -78,7 +78,7 @@ export default function ContactSection() {
             >
               <div style={{ position: "relative", width: "160px", height: "55px", marginBottom: "0.75rem" }}>
                 <Image
-                  src="/images/brand/milind-logo-v2-white.png"
+                  src="/images/brand/milind-logo-v3-white.png"
                   alt="Milind Travels"
                   fill
                   sizes="160px"

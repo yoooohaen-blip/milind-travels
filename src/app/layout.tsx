@@ -68,8 +68,8 @@ export const metadata: Metadata = {
     images: ["/images/hero-cinematic.jpg"],
   },
   icons: {
-    icon: "/images/brand/milind-logo-v2-white.png",
-    apple: "/images/brand/milind-logo-v2-white.png",
+    icon: "/images/brand/milind-logo-v3-white.png",
+    apple: "/images/brand/milind-logo-v3-white.png",
   },
   robots: {
     index: true,
